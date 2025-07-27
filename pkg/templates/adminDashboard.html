@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="icon" type="text/css" href="/static/fontawesome/svgs/solid/box.svg">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+	<title>Frrutts | Admin Dashboard</title>
+	<style>
+		.mainContainer{
+			margin-top: -50px;
+			background-color: #F3ECDC;
+			/* min-height: 600px; */
+		}
+		.navPosition {
+			position: sticky; top: 0px;
+			/* max-height: 60px; */
+			z-index: 34;
+		}
+		.logo-img {
+			height: 50px;
+			width: auto;
+		}
+		.navbar {
+			background-color: #F9FBF2 !important;
+		}
+		.navbar-nav .nav-link {
+			font-weight: bold;
+			color: #26532B !important;
+		}
+		.navbar-nav .nav-link:hover,
+			.navbar-nav .btn:hover {
+			color: #E08E45 !important;
+		}
+		.buttonLink{
+			border: 2px solid  #E08E45;
+			background-color: #E08E45;
+			color: ghostwhite;
+		}
+		.buttonLink:hover{
+			background-color: whitesmoke;
+			color: #E08E45;
+			border: 2px solid  #E08E45;
+		}
+		.buttonLink2{
+			border: 2px solid #26532B;
+			background-color: #26532B;
+			color: whitesmoke;
+		}
+		.buttonLink2:hover{
+			border: 2px solid #26532B;
+			background-color: whitesmoke;
+			color: #26532B !important;
+		}
+		.searchBox{
+			background-color: #F9FBF2;
+		}
+		.firstRow{
+			transition: transform 0.3s;
+		}
+		.firstRow:hover{
+			transform: translateX(-5px);
+		}
+		.col1{
+			/* min-height: 100px; */
+			background-color: #26532B;
+			color: #E08E45;
+			padding: 15px;
+		}
+		.col1 .btn {
+			width: 100%;
+			text-align: left;
+			margin: 5px 0;
+			color: var(--orange);
+		}
+		.col2{
+			/* /* min-height: 100px; */
+			padding: 10px; 
+		}
+		.parentDiv1{
+			/* min-height: 70px;
+			width: 95%;
+			margin:auto; */
+			width: 95%;
+			margin: auto;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 15px;
+		}
+		.childDiv1{
+			/*width: 23%;*/
+
+			/* flex-grow: 1;
+			margin-right: 18px;
+			transition: transform 0.3s; */
+			background-color: #26532B;
+			color: #E08E45;
+
+			flex: 1 1 220px;
+			/* background-color: var(--green); */
+			/* color: var(--orange); */
+			padding: 15px;
+			border-radius: 10px;
+			transition: transform 0.3s;
+		}
+		.childDiv1:hover{
+			transform: translateY(-5px);
+		}
+		.heading1{
+			font-size: 1.5em;
+			margin-top: -5px;
+		}
+		.rowCol, .rowCol2{
+			/* min-height: 200px; */
+			width: 95%;
+			margin:auto;
+		}
+		.nestedCol, .rowCol2{
+			background-color: #26532B;
+			color: #E08E45;
+			transition: transform 0.3s;
+		}
+		.nestedCol, .rowCol2 {
+			/* background-color: var(--green);
+			color: var(--orange); */
+			border-radius: 10px;
+			padding: 15px;
+			margin-bottom: 20px;
+		}
+		/* .nestedCol:hover{
+			transform: translateY(-5px);
+		} */
+		.nestedCol:hover, .transformDiv:hover {
+			transform: translateY(-5px);
+			transition: transform 0.3s;
+		}
+		.rowCol2{
+			min-height: 200px;
+			width: 95%;
+			margin:auto;
+			background-color: #26532B;
+			color: #E08E45;
+		}
+		/* .transformDiv{
+			transition: transform 0.3s;
+		}
+		.transformDiv:hover{
+			transform: translateY(-5px);
+		} */
+		/* th, td {
+		border-bottom: 1px solid #ccc;
+		padding: 10px;
+		text-align: left;
+		} */
+		.table {
+            width: 100% !important;
+            table-layout: fixed;
+        }
+
+		th, td {
+			border-bottom: 1px solid #ccc;
+			padding: 10px;
+			text-align: left;
+		}
+
+		.table-responsive {
+			overflow-x: auto;
+            width: 100%;
+            height: 100%;
+		}
+		/* Mobile Adjustments */
+		@media (max-width: 767.98px) {
+			.parentDiv1 {
+				flex-direction: column;
+				align-items: stretch;
+			}
+			.heading1 {
+				font-size: 1.2em;
+			}
+		}
+				.footerRow {
+		  background-color: #26532B;
+		  margin-top: 50px;
+		  padding: 2rem 1rem;
+		}
+
+		.parent5 {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: space-between;
+		  gap: 2rem;
+		}
+
+		.child5 {
+		  flex: 1 1 100%;
+		  min-height: 150px;
+		}
+
+		@media (min-width: 768px) {
+		  .child5 {
+		    flex: 1 1 30%;
+		  }
+		}
+
+		.child5 .heading12 {
+		  font-family: 'chewy', cursive;
+		  color: ghostwhite !important;
+		  font-size: 2em;
+		}
+
+		.child5 ul {
+		  list-style-type: none;
+		  padding-left: 0;
+		}
+
+		.child5 ul li a {
+		  color: ghostwhite;
+		  font-weight: bold;
+		  font-family: fredoka;
+		}
+
+		.child5 ul li a:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		}
+
+		.child5 button {
+		  border: 2px solid ghostwhite;
+		  font-weight: bold;
+		  color: ghostwhite;
+		  margin-top: 20px;
+		}
+
+		.child5 button:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		}
+
+		.iTagDiv, .iTagDiv2, .iTagDiv3, .iTagDiv4 {
+		  display: inline-block;
+		  margin-top: 20px;
+		  width: 40px;
+		  height: 40px;
+		  text-align: center;
+		  background-color: ghostwhite;
+		  line-height: 40px;
+		  margin-right: 10px;
+		}
+
+		.linkDiv {
+		  width: 100%;
+		  margin-top: 50px;
+		  text-align: center;
+		}
+
+		.link1, .link2, .link3 {
+		  padding: 10px;
+		  color: white;
+		  text-decoration: none;
+		  display: inline-block;
+		}
+
+		.link1:hover, .link2:hover, .link3:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		  padding: 10px 20px;
+		}
+
+		.para100 {
+		  color: whitesmoke;
+		  text-align: center;
+		  margin-top: 1rem;
+		}
+	</style>
+</head>
+<body>
+			<nav class="navbar navbar-expand-lg bg-body-tertiary rounded navPosition">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <a class="navbar-brand d-flex align-items-center" href="{{url_for('index')}}">
+      <img src="/static/images/image38.png" alt="logo" class="logo-img me-2">
+      <span class="fw-bold fs-4 text-dark">Frrutts</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav align-items-center gap-3 firstNav">
+      	<li class="nav-item">
+          <input type="search" name="adminSearch" class="form-control searchBox" placeholder="Search">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{url_for('adminDashboard')}}"> <i class="fas fa-chart-bar"></i> Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('market')}}"><i class="fas fa-table-cells-large"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="btn myCanvas" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"><i class="fas fa-bell"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="btn"> <i class="fas fa-user"></i> Admin 1</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	<div class="container-fluid mainContainer">
+
+
+		<!-- First row starts here -->
+		<div class="row row1 mt-5">
+			<!-- Left hand side div -->
+			<div class="col-md-2 col1 rounded firstRow">
+				<p>Pages</p>
+				<button class="btn"><i class="fas fa-chart-bar"></i> Dashboard</button>
+				<button class="btn"><i class="fas fa-receipt"></i> Orders</button>
+				<button class="btn"><i class="fas fa-credit-card"></i> Payments</button>
+				<button class="btn"><i class="fas fa-users"></i> Users</button>
+				<button class="btn"><i class="fas fa-plus"></i> Add To Box</button>
+				<button class="btn"><i class="fas fa-carrot"></i></i></i> Products</button>
+				<button class="btn mb-5"> <i class="fas fa-bell"></i> Notifications</button>
+				<button class="btn mt-5"><i class="fas fa-cog"></i> Settings</button>
+				<button class="btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+			</div>
+
+			<!-- right hand side div -->
+			<div class="col-md-10 col2 rounded">
+				<!-- first row for the right hand side -->
+				<div class="parentDiv1 rounded d-lg-flex mt-2 justify-content-between">
+					<div class="childDiv1 rounded">
+						<p><i class="fas fa-shopping-bag ms-2"></i> TOTAL SALES </p>
+						<h2 class="heading1 ms-2">&#8358; 987,700</h2>
+					</div>
+					<div class="childDiv1 rounded">
+						<p><i class="fas fa-dolly ms-2"></i>TOTAL ORDERS</p>
+						<h1 class="heading1 ms-2">3,122</h1>
+					</div>
+					<div class="childDiv1 rounded">
+						<p><i class="fas fa-users ms-2"></i> TOTAL USERS</p>
+						<h2 class="heading1 ms-2">1,101</h2>
+					</div>
+					<div class="childDiv1 rounded">
+						<p><i class="fas fa-clock ms-2"></i>  PAYMENTS DUE</p>
+						<h2 class="heading1 ms-2">&#8358; 358,902</h2>
+					</div>
+				</div>
+
+				<!-- second row for the right hand side -->
+				<div class="row rowCol rounded mt-4">
+					<div class="col-12 nestedCol me-md-3 rounded table-responsive">
+						<table class="w-100">
+
+							<thead>
+								<tr>
+									<th colspan="3">Recent Orders</th>
+									<th colspan="2"><button class="btn btn-sm btn-primary">View All</button></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Product</td>
+									<td>Customer</td>
+									<td>Order ID</td>
+									<td>Date</td>
+									<td>Status</td>
+								</tr>
+								<tr>
+									<td>Max size Veg&fruit</td>
+									<td>John Doe</td>
+									<td>#322451</td>
+									<td>15 June 2025</td>
+									<td><p class="badge bg-success rounded-1">Delivered</p></td>
+								</tr>
+								<tr>
+									<td>Jolli size fruit box</td>
+									<td>Emmanuel Eni</td>
+									<td>#761235</td>
+									<td>12 June 2025</td>
+									<td><p class="badge bg-danger rounded-1">Cancelled</p></td>
+								</tr>
+								<tr>
+									<td>Jinja size veg box</td>
+									<td>Johnstone J</td>
+									<td>#091225</td>
+									<td>12 June 2025</td>
+									<td><p class="badge bg-warning rounded-1">Pending</p></td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+					
+				</div>
+
+				<!-- third row for the right hand side -->
+				<div class="row rowCol2 mt-4 rounded">
+					<div class="col transformDiv table-responsive">
+
+						<table cellspacing="0" cellpadding="20" width="100%">
+							<thead>
+								<tr>
+									<th>Product code</th>
+									<th>Item</th>
+									<th>size</th>
+									<th>Price</th>
+									<th>Sold</th>
+									<th>Sales</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>8671WEQ</td>
+									<td>Veg & Fruit Box</td>
+									<td><p class="badge bg-primary">Jolli</p></td>
+									<td>&#8358; 12,160</td>
+									<td>17</td>
+									<td>&#8358; 206,720</td>
+								</tr>
+								<tr>
+									<td>2031AAJ</td>
+									<td>Veg & Fruit Box</td>
+									<td><p class="badge bg-warning">Jinja</p></td>
+									<td>&#8358; 19,170</td>
+									<td>25</td>
+									<td>&#8358; 479,250</td>
+								</tr>
+								<tr>
+									<td>5540MMD</td>
+									<td>Veg & Fruit Box</td>
+									<td><p class="badge bg-secondary">Max</p></td>
+									<td>&#8358; 27,205</td>
+									<td>40</td>
+									<td>&#8358; 1,088,200</td>
+								</tr>
+								<tr>
+									<td>3009BBL</td>
+									<td>Fruit Box</td>
+									<td><p class="badge bg-secondary">Max</p></td>
+									<td>&#8358; 16,900</td>
+									<td>182</td>
+									<td>&#8358; 3,075,800</td>
+								</tr>
+								<tr>
+									<td>3216DDY</td>
+									<td>Fruit Box</td>
+									<td><p class="badge bg-primary">Jolli</p></td>
+									<td>&#8358; 12,010</td>
+									<td>327</td>
+									<td>&#8358; 3,927,270</td>
+								</tr>
+								<tr>
+									<td>5519HJK</td>
+									<td>Fruit Box</td>
+									<td><p class="badge bg-warning">Jinja</p></td>
+									<td>&#8358; 8,320</td>
+									<td>519</td>
+									<td>&#8358; 4,318,080</td>
+								</tr>
+								<tr>
+									<td>9981ZEX</td>
+									<td>Veg Box</td>
+									<td><p class="badge bg-secondary">Max</p></td>
+									<td>&#8358; 11,095</td>
+									<td>53</td>
+									<td>&#8358; 588,035</td>
+								</tr>
+								<tr>
+									<td>7862AVC</td>
+									<td>Veg Box</td>
+									<td><p class="badge bg-primary">Jolli</p></td>
+									<td>&#8358; 6,900 </td>
+									<td>98</td>
+									<td> &#8358; 676,200 </td>
+								</tr>
+								<tr>
+									<td>0092LOL</td>
+									<td>Veg Box</td>
+									<td><p class="badge bg-warning">Jinja</p></td>
+									<td>&#8358; 8,990</td>
+									<td>237</td>
+									<td>&#8358; 2,130,630</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		{% include 'footer.html' %}
+	</div>
+
+
+	<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>

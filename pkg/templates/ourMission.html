@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="icon" type="text/css" href="/static/fontawesome/svgs/solid/box.svg">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+	<title>Our Mission</title>
+	<style>
+		.navPosition {
+			position: sticky;
+			top: 0px;
+			min-height: 70px;
+		}
+		.buttonColor {
+			margin-left: 420px;
+		}
+		.buttonColor:hover {
+			background-color: #26532B;
+		}
+		.buttonColor2 {
+			border: 1px solid #E08E45;
+			margin-left: 30px;
+		}
+		.buttonColor2:hover {
+			background-color: #E08E45;
+			color: white;
+		}
+		.firstNav {
+			font-weight: bold !important;
+		}
+
+		.myCanvas {
+			font-weight: bold !important;
+		}
+		.borderBottom:hover {
+			border-bottom: 2px solid #E08E45;
+		}
+		.firstOffcanvas {
+			list-style-type: none;
+		}
+		.inlineParents {
+			display: flex;
+			justify-content: space-between;
+			width: 50%;
+		}
+		.inline1 {
+			width: 40%;
+			height: 150px;
+		}
+		.firstRow{
+			margin-top: 70px;
+			min-height: 500px;
+			/*border: 2px solid lawngreen;*/
+		}
+		.firstColDiv1{
+			/*border: 1px solid blueviolet;*/
+			width: 80%;
+			margin-left: 120px;
+		}
+		.heading1{
+			font-family: 'chewy', cursive;
+			font-size: 4em;
+			text-align: center;
+		}
+		.para1{
+			font-weight: fredoka;
+			font-size: 1.3em;
+			text-align: center;
+			margin-top: 60px;
+		}
+		.para2{
+			font-weight: fredoka;
+			font-size: 1.3em;
+			margin-bottom: -3px;
+			text-align: center;
+		}
+		.secondRow{
+			min-height: 450px;
+			/*border: 2px solid skyblue;*/
+		}
+		.parent{
+			min-height: 150px;
+			/*border: 2px solid rosybrown;*/
+			display: flex;
+			justify-content: space-between;
+			width: 80%;
+			margin-left: 125px;
+		}
+		.child{
+			min-height: 100px;
+			/*border: 2px solid rosybrown;*/
+			width: 25%;
+		}
+		.thumbsDown{
+			width: 75%;
+			margin-left: 25px;
+			/*border: 2px solid yellow;*/
+		}
+		.para3{
+			font-weight: bold;
+			font-family: fredoka;
+			text-align: center;
+			margin-top: 35px;
+			font-size: 1.3em;
+		}
+		.thumbsDown2{
+			width: 100%;
+			/*border: 2px solid yellow;*/
+		}
+		.thumbsDown3{
+			width: 70%;
+			margin-left: 40px;
+		/*	border: 2px solid yellow;*/
+		}
+		.thirdRow{
+			min-height: 600px;
+			/*border: 2px solid blanchedalmond;*/
+		}
+		.parent2{
+			width: 80%;
+			min-height: 300px;
+			display: flex;
+			justify-content: space-between;
+			/*border: 1px solid blueviolet;*/
+			margin-left: 120px;
+		}
+		.child2{
+			width: 45%;
+			min-height: 250px;
+			/*border: 1px solid blueviolet;*/
+		}
+		.child2 img {
+			height: 500px;
+			width: 100%;
+		}
+		.para4{
+			font-family: fredoka;
+			font-size: 1.3em;
+			text-align: center;
+			margin-top: 120px;
+		}
+		.para5{
+			font-family: fredoka;
+			font-size: 1.3em;
+			text-align: center;
+			margin-top: 15px;
+		}
+		.buttonDesign10{
+			background-color: #E08E45;
+			font-weight: bold;
+			margin-left: 70px;
+			color: ghostwhite;
+			border: 2px solid #E08E45;
+		}
+		.buttonDesign10:hover{
+			border: 2px solid #E08E45;
+			color: #E08E45;
+		}
+		.fourthRow{
+			min-height: 570px;
+			background-color: #E8E8E8;
+			width: 98%;
+			margin-left: 13px;
+		}
+		.parent3{
+			width: 80%;
+			min-height: 300px;
+			display: flex;
+			justify-content: space-between;
+			/*border: 1px solid blueviolet;*/
+			margin-left: 120px;
+		}
+		.child3{
+			height: 500px;
+			width: 50%;
+			/*border: 1px solid blueviolet;*/
+		}
+		.child3 .child3Div{
+			width: 70%;
+			margin-left: 58px;
+		}
+		.child3 .child3Div h1{
+			text-align: center;
+			font-family: 'chewy', cursive;
+			font-size: 3.6em;
+			margin-top: 40px;
+		}
+		.para6{
+			font-family: fredoka;
+			text-align: center;
+			font-size: 1.2em;
+		}
+		.child3Div2{
+			width: 95%;
+			margin-left: 12px;
+			margin-top: 33px;
+		}
+		.child3 img{
+			margin-top: 30px;
+		}
+		.fifthRow{
+			min-height: 500px;
+			/*border: 2px solid green;*/
+			background-color: #E8E8E8;
+			width: 97%;
+			margin-left: 16px;
+			margin-top: 50px;
+		}
+		.parent4{
+			min-height: 300px;
+			/*border: 2px solid orangered;*/
+			display: flex;
+			justify-content: space-between;
+			margin-top: 50px;
+		}
+		.child4{
+			width: 45%;
+			min-height: 200px;
+			/*border: 1px solid royalblue;*/
+		}
+		.heading7{
+			font-family: 'chewy', cursive;
+			font-size: 1.4em;
+			text-align: center;
+		}
+		.heading8{
+			font-family: 'chewy', cursive;
+			font-size: 1.4em;
+			text-align: center;
+			margin-top: 19px;
+		}
+		.para7{
+			font-family: fredoka;
+			font-size: 1.1em;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.sixthRow{
+			min-height: 850px;
+			/*border: 2px solid sandybrown;*/
+		}
+		.sixthCol{
+			margin-top: 100px;
+		}
+		.heading9{
+			font-family: 'chewy', cursive;
+			font-size: 4em;
+			text-align: center;
+		}
+		.heading10{
+			font-family: 'chewy', cursive;
+			font-size: 1.6em;
+			text-align: center;
+			margin-top: 50px;
+		}
+		.sixthCol div{
+			width: 50%;
+			margin-left: 300px;
+			margin-top: 50px;
+		}
+		.seventhRow{
+			min-height: 400px;
+			/*border: 2px solid cornsilk;*/
+		}
+		.seventhColDiv1{
+			min-height: 300px;
+			/*border: 2px solid palevioletred;*/
+			width: 60%;
+			margin-left: 230px;
+			margin-top: 50px;
+		}
+		.heading11{
+			font-family: 'chewy', cursive;
+			font-size: 4.2em;
+			text-align: center;
+		}
+	.buttonDesign11{
+			background-color: #E08E45;
+			font-weight: bold;
+			margin-left: 200px;
+			margin-top: 50px;
+			border: 2px solid #E08E45;
+			color: ghostwhite;
+		}
+		.buttonDesign11:hover{
+			border: 2px solid #E08E45;
+			color: #E08E45;
+		}
+		.footerRow{
+			min-height: 600px;
+			/*border: 2px solid yellow;*/
+			background-color: #26532B;
+			margin-top: 50px;
+		}
+		.parent5{
+			min-height: 350px;
+			/*border: 2px solid orangered;*/
+			display: flex;
+			justify-content: space-between;
+			margin-top: 20px;
+		}
+		.child5{
+			width: 30%;
+			min-height: 150px;
+			/*border: 2px solid sandybrown;*/
+		}
+		.child5 .heading12{
+			font-family: 'chewy', cursive;
+			color: ghostwhite !important;
+			font-size: 3em;
+		}
+		.child5 ul{
+			list-style-type: none;
+		}
+		.child5 ul li a {
+			color: ghostwhite;
+			font-weight: bold;
+			font-family: fredoka;
+		}
+		.child5 ul li a:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+		}
+		.child5 button {
+			border: 2px solid ghostwhite;
+			font-weight: bold;
+			color: ghostwhite;
+			margin-top: 20px;
+			margin-left: 80px;
+		}
+		.child5 button:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+		}
+		.iTagDiv{
+			margin-top: 20px;
+			margin-left: 80px;
+			width: 	10%;
+			text-align: center;
+			background-color: ghostwhite;
+		}
+		.iTagDiv2{
+			margin-top: -24px;
+			margin-left: 130px;
+			width: 	10%;
+			text-align: center;
+			background-color: ghostwhite;
+		}
+		.iTagDiv3{
+			margin-top: -24px;
+			margin-left: 180px;
+			width: 	10%;
+			text-align: center;
+			background-color: ghostwhite;
+		}
+		.iTagDiv4{
+			margin-top: -24px;
+			margin-left: 230px;
+			width: 	10%;
+			text-align: center;
+			background-color: ghostwhite;
+		}
+		.linkDiv{
+			
+			width: 70%;
+			margin-top: 50px;
+			margin-left: 200px;
+		}
+		.link1, .link2, .link3{
+			padding: 20px;
+			color: white;
+			text-decoration: none;
+		}
+		 .link3:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+			padding: 0px 20px;
+		}
+		.link2:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+			padding: 0px 20px;
+		}
+		.link1:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+			padding: 0px 20px;
+		}
+		.para100{
+			color: whitesmoke;
+			margin-left: 500px;
+		}
+				.logo-img {
+  height: 50px;
+  width: auto;
+}
+.navbar {
+  background-color: #F9FBF2 !important;
+}
+.navbar-nav .nav-link {
+  font-weight: bold;
+  color: #26532B !important;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .btn:hover {
+  color: #E08E45 !important;
+}
+.buttonLink{
+	border: 2px solid  #E08E45;
+	background-color: #E08E45;
+	color: ghostwhite;
+}
+.buttonLink:hover{
+	background-color: whitesmoke;
+	color: #E08E45;
+	border: 2px solid  #E08E45;
+}
+.buttonLink2{
+	border: 2px solid #26532B;
+	background-color: #26532B;
+	color: whitesmoke;
+}
+.buttonLink2:hover{
+		border: 2px solid #26532B;
+		background-color: whitesmoke;
+		color: #26532B !important;
+}
+
+	</style>
+</head>
+<body>
+
+	<!-- navbar section starts here -->
+		{% include 'header.html' %}
+
+
+
+
+	<div class="container-fluid">
+
+
+				<!-- Row one starts here -->
+		<div class="row firstRow">
+			<div class="col firstCol">
+				<div class="firstColDiv1">
+					<h1 class="heading1">FIGHTING FOOD WASTAGE,</h1>
+					<h1 class="heading1"> ONE CURVY CUCUMBER</h1>
+					<h1 class="heading1"> AT A TIME.</h1>
+					<p class="para1">As much as 40% of food produced globally is wasted.</p>
+					<p class="para2">And when food is wasted, all the water and energy used to grow it is at risk of being lost too.</p>
+					<p class="para2">Most people don't realise it, but food wastage is a climate issue- and one of the most urgent ones at that.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Row two starts here -->
+		<div class="row secondRow">
+			<div class="col secondCol">
+				<div class="parent">
+					<div class="child">
+						<div>
+							<img src="/static/images/image18.png" alt="an image of a thumbs-down" class="thumbsDown img-fluid">
+						</div>
+						<p class="para3">Food wastage is responsible for approximately 10% of all greenhouse emissions.</p>
+					</div>
+
+					<div class="child">
+						<div>
+							<img src="/static/images/image19.png" alt="an image of a thumbs-down" class="thumbsDown2 img-fluid">
+						</div>
+						<p class="para3">The enviromental impact of food wastage is around 284x bigger than plastic.</p>
+					</div>
+					<div class="child">
+						<div>
+							<img src="/static/images/image20.png" alt="an image of a thumbs-down" class="thumbsDown3 img-fluid">
+						</div>
+						<p class="para3">As much as 2.5billion tonnes of food are wasted globally each year.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Row three starts here -->
+		<div class="row thirdRow">
+			<div class="col thirdCol">
+				<div class="parent2">
+					<div class="child2">
+						<img src="/static/images/image21.jpg" class="img-fluid rounded-1">
+					</div>
+					<div class="child2">
+						<p class="para4">But it doesn’t have to be this way. In fact, Project Drawdown has identified ‘reducing food waste’ as the number one solution to solve climate change.</p>
+						<p class="para5">So what are we waiting for?</p>
+						<button class="btn buttonDesign10 btn-lg rounded-1">JOIN THE RESCUE MISSION</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Row four starts here -->
+		<div class="row fourthRow">
+			<div class="col fourthCol">
+				<div class="parent3">
+					<div class="child3">
+						<div class="child3Div">
+							<h1>GETTING TO THE ROOTS OF THE PROBLEM.</h1>
+						</div>
+						<div class="child3Div2">
+							<p class="para6">A lot of what we do at Oddbox focuses on tackling food waste on farms. Around 1.2 billion tonnes of fruit and veg are lost at this stage of the food system annually.</p>
+							<p class="para6">Around 25% of food waste in the UK happens on farms – more than retail, manufacturing and hospitality put together.</p>
+						</div>
+					</div>
+					<div class="child3">
+						<img src="/static/images/image22.jpg" alt="an image of a man holding a cabbage" class="img-fluid rounded-1">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Fifth row starts here -->
+		<div class="row fifthRow">
+			<div class="col fifthCol">
+				<div class="parent4">
+					<div class="child4">
+						<img src="/static/images/image23.jpg" alt="an image of a truck loaded with potatoes" class="img-fluid rounded-1">
+					</div>
+					<div class="child4">
+						<h1 class="heading7">FRUIT AND VEG CAN BE AT RISK OF GOING TO WASTE ON FARMS FOR ALL KINDS OF REASONS, BUT IT TENDS TO BE BECAUSE IT FALLS INTO ONE OF TWO CATEGORIES: </h1>
+						<h1 class="heading8">"TOO ODD"</h1>
+						<p class="para7">This is fruit and veg that won’t meet retailers’ strict cosmetic specifications – it could be on the small side, be an unusual shape or colour or have been marked in some way while growing.</p>
+						<h1 class="heading8">"TOO MANY"</h1>
+						<p class="para7">Sometimes the weather causes more crops to grow than predicted. Sometimes orders get cancelled. And all too often, challenges around demand forecasting simply mean growers have more than is needed.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Sixth row starts here -->
+		<div class="row sixthRow">
+			<div class="col sixthCol">
+				<h1 class="heading9">HOW ARE WE HELPING?</h1>
+				<h4 class="heading10">BY BEING 'GROWER-LED'.</h4>
+				<div>
+					<p class="para7">Instead of telling growers what we want, which is how the food system usually works, we speak to them each week to find out what they’ve already grown and what’s going spare. </p>
+					<h4 class="heading10">BY ONLY RESCUING THE "TOO-ODD" AND "TOO MANY"</h4>
+					<p class="para7">Every piece of fruit and veg we rescue from growers is at risk of going to waste for one of these reasons – in lots of cases, for more than one reason.</p>
+					<h4 class="heading10">BY BEING FLEXIBLE AND RELIABLE</h4>
+					<p class="para7">We help growers harvest and sell their fruit and veg by being a reliable secondary market. And we're always open to last minute rescues if something unexpected crops up.</p>
+					<button type="button" class="btn btn-lg buttonDesign10 rounded-1">READ MORE ABOUT HOW WE'RE HELPING GROWERS </button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Seventh row starts here -->
+		<div class="row seventhRow">
+			<div class="col seventhCol">
+				<div class="seventhColDiv1">
+					<h1 class="heading11">EVERY CARROT COUNTS.</h1>
+					<p class="para7">So far, you’ve helped us rescue the equivalent to over <b>125 million meals.</b></p>
+					<h4 class="heading10">OVER 54,000 TONNES OF FRUIT AND VEG</h4>
+					<p class="para7">Every box makes a difference – by rescuing a Medium Fruit & Veg box every week for <b>three months,</b> you’d save a whopping <b>85kg</b> of fruit and veg. Roughly<b> 200 meals’ worth.</b></p>
+					<div>
+						<img src="/static/images/image24.png" alt="an image of a carton of fruits" class="img-fluid rounded-1">
+						<button class="btn buttonDesign11 btn-lg rounded-1 w-50">START RESCUING</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Footer row starts here -->
+{% include 'footer.html' %}
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+		<!-- how it works offcanvas -->
+	<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasTopLabel">How It Works</h5>
+				 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<ul class="firstOffcanvas">
+				<li><a class="dropdown-item borderBottom" href="{{url_for('subscription')}}">Subscription</a></li>
+				<li><a class="dropdown-item borderBottom" href="#">Overnight Delivery</a></li>
+				<li><a class="dropdown-item borderBottom" href="marked.html">The Market</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- About Frrutts offcanvas -->
+	<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop1" aria-labelledby="offcanvasTopLabel">
+  	<div class="offcanvas-header">
+   		 <h5 class="offcanvas-title" id="offcanvasTopLabel1">About Frrutts</h5>
+   		 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+  		<div class="inlineParents">
+  			<div class="inline1">
+			    <ul class="firstOffcanvas">
+							<li><a class="dropdown-item borderBottom" href="#">About us</a></li>
+							<li><a class="dropdown-item borderBottom" href="{{url_for('ourmission')}}">Our Mission</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Our Journey</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Our Growers</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Sustainability</a></li>
+				</ul>
+			</div>
+			<div class="inline2">
+				<ul class="firstOffcanvas ">
+							<li><a class="dropdown-item borderBottom" href="#">Community</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Testimonials</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Refer A Friend</a></li>
+				</ul>
+			</div>
+		</div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">ALREADY REGISTERED WITH US?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      		<!-- Form in modal starts here -->
+       		<div>
+       			<h1>Log In</h1>
+       			<p>Please Log in if you have an account with us</p>
+       			<form action="#" method="get">
+       				<div class="mb-2">
+       					<label class="form-label">Email Address</label>
+       					<input type="email" name="userEmail" class="form-control">
+       				</div>
+       				<div>
+       					<label class="form-label">Password</label>
+       					<input type="password" name="userPass" class="form-control">
+       				</div>
+       				<button class="btn buttonColor3 col-12">Log In</button>
+       			</form>
+       		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+	<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>

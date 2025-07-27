@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="icon" type="text/css" href="/static/fontawesome/svgs/solid/box.svg">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>Frrutts | Login</title>
+    <style>
+        .navPosition {
+			position: sticky;
+			top: 0px;
+			min-height: 70px;
+		}
+        .logo-img {
+        height: 50px;
+        width: auto;
+        }
+        .navbar {
+        background-color: #F9FBF2 !important;
+        }   
+        .navbar-nav .nav-link {
+        font-weight: bold;
+        color: #26532B !important;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .btn:hover {
+        color: #E08E45 !important;
+        }
+        .buttonLink{
+            border: 2px solid  #E08E45;
+            background-color: #E08E45;
+            color: ghostwhite;
+        }
+        .buttonLink:hover{
+            background-color: whitesmoke;
+            color: #E08E45;
+            border: 2px solid  #E08E45;
+        }
+        .buttonLink2{
+            border: 2px solid #26532B;
+            background-color: #26532B;
+            color: whitesmoke;
+        }
+        .buttonLink2:hover{
+                border: 2px solid #26532B;
+                background-color: whitesmoke;
+                color: #26532B !important;
+        }
+        .footerRow {
+		  background-color: #26532B;
+		  margin-top: 50px;
+		  padding: 2rem 1rem;
+		}
+
+		.parent5 {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: space-between;
+		  gap: 2rem;
+		}
+
+		.child5 {
+		  flex: 1 1 100%;
+		  min-height: 150px;
+		}
+
+		@media (min-width: 768px) {
+		  .child5 {
+		    flex: 1 1 30%;
+		  }
+		}
+
+		.child5 .heading12 {
+		  font-family: 'chewy', cursive;
+		  color: ghostwhite !important;
+		  font-size: 2em;
+		}
+
+		.child5 ul {
+		  list-style-type: none;
+		  padding-left: 0;
+		}
+
+		.child5 ul li a {
+		  color: ghostwhite;
+		  font-weight: bold;
+		  font-family: fredoka;
+		}
+
+		.child5 ul li a:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		}
+
+		.child5 button {
+		  border: 2px solid ghostwhite;
+		  font-weight: bold;
+		  color: ghostwhite;
+		  margin-top: 20px;
+		}
+
+		.child5 button:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		}
+
+		.iTagDiv, .iTagDiv2, .iTagDiv3, .iTagDiv4 {
+		  display: inline-block;
+		  margin-top: 20px;
+		  width: 40px;
+		  height: 40px;
+		  text-align: center;
+		  background-color: ghostwhite;
+		  line-height: 40px;
+		  margin-right: 10px;
+		}
+
+		.linkDiv {
+		  width: 100%;
+		  margin-top: 50px;
+		  text-align: center;
+		}
+
+		.link1, .link2, .link3 {
+		  padding: 10px;
+		  color: white;
+		  text-decoration: none;
+		  display: inline-block;
+		}
+
+		.link1:hover, .link2:hover, .link3:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		  padding: 10px 20px;
+		}
+
+		.para100 {
+		  color: whitesmoke;
+		  text-align: center;
+		  margin-top: 1rem;
+		}
+
+        /* login button  */
+        .login-button:hover{
+            background-color:  #F9FBF2;
+            border: 2px solid #26532B;
+            color: #26532B;
+		}
+		.login-button {
+			color: #F9FBF2;
+				border: 2px solid #26532B;
+			font-weight: bold;
+			margin-left: 480px;
+			background-color: #26532B;
+		}
+
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+				{% set messages = get_flashed_messages(with_categories=True) %}
+				{% if messages %}
+					{% for cat,msg in messages %}
+						{% if cat == 'error' %}
+							<p class="alert alert-danger">{{msg}}</p>
+						{% else %}
+							<p class="alert alert-success">{{msg}}</p>
+						{% endif %}
+
+					{% endfor %}
+				{% endif %}
+                <div class="w-50 border border-2 border-dark rounded-1" style="min-height: 400px;margin: auto;" >
+                    <form action="" novalidate method="post">
+						{{ login.csrf_token }}
+                        <h1 style="font-family: 'fredoka',sans-serif;" class="text-center mb-5">Login Page</h1>
+                        <div class="form-floating mb-3" style="width: 95%;margin: auto;">
+                            
+                            {{ login.email(class_="form-control",placeholder="name@example.com") }}
+                            
+                            {{ login.email.label }}
+                        </div>
+                        <div class="form-floating mb-3" style="width: 95%;margin: auto;">
+                            
+                            {{ login.password(class_="form-control",placeholder="Password") }}
+                            
+                            {{ login.password.label }}
+                        </div>
+                        <div style="margin: auto;">
+                            {{ login.submit(class_="btn login-button col-11 btn-lg rounded-1 ms-3") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+     {% include 'footer.html' %}
+     	<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>

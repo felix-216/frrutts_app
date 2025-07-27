@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="icon" type="text/css" href="/static/fontawesome/svgs/solid/box.svg">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+	<title>FRUIT AND VEG  SUBSCRIPTION</title>
+	<style>
+				.navPosition {
+			position: sticky;
+			top: 0px;
+			min-height: 70px;
+		}
+		.buttonColor {
+			margin-left: 420px;
+		}
+		.buttonColor:hover {
+			background-color: #26532B;
+		}
+		.buttonColor2 {
+			border: 1px solid #E08E45;
+			margin-left: 30px;
+		}
+		.buttonColor2:hover {
+			background-color: #E08E45;
+			color: white;
+		}
+		.firstNav {
+			font-weight: bold !important;
+		}
+
+		.myCanvas {
+			font-weight: bold !important;
+		}
+		.borderBottom:hover {
+			border-bottom: 2px solid #E08E45;
+		}
+		.firstOffcanvas {
+			list-style-type: none;
+		}
+		.inlineParents {
+			display: flex;
+			justify-content: space-between;
+			width: 50%;
+		}
+		.inline1 {
+			width: 40%;
+			height: 150px;
+		}
+		.Container1{
+			background-color: #FCF9F5;
+			min-height: 300px;
+		}
+		.firstRow{
+			min-height: 300px;
+			/*border: 2px solid blueviolet;*/
+		}
+		.heading1{
+			margin-left: 350px;
+			margin-top: 70px;
+			font-family: 'chewy', cursive;
+			font-size: 4.3em;
+		}
+		.parent1{
+			width: 80%;
+			min-height: 300px;
+			/*border: 2px solid rosybrown;*/
+			margin-top: 70px;
+			margin-left: 120px;
+			display: flex;
+			justify-content: space-around;
+		}
+		.child1{
+			width: 30%;
+			min-height: 100px;
+			/*border: 2px solid darkgreen;*/ 
+		}
+		.heading2{
+			font-family: 'chewy', cursive;
+			font-size: 2em;
+			margin-top: 20px;
+		}
+		.para1{
+			font-family: fredoka;
+			text-align: center;
+			font-size: 1.2em;
+		}
+		.image2{
+			/*border: 2px solid red;*/
+			height: 190px;
+			width: 90%;
+		}
+		.firstCol button {
+			margin-top: 30px;
+			margin-left: 520px;
+			background-color: #E08E45;
+			font-family: fredoka;
+			font-weight: bold;
+			color: #FCF9F5;
+			border: 2px solid #E08E45;
+		}
+		.firstCol button:hover{
+			background-color: #FCF9F5;
+			border: 2px solid #E08E45;
+			color: #E08E45;
+		}
+		.heading3{
+			margin-left: 270px;
+			margin-top: 70px;
+			font-family: 'chewy', cursive;
+			font-size: 4.3em;
+		}
+		.para2{
+			font-family: fredoka;
+			font-size: 1.2em;
+			font-weight: bold;
+			text-align: center;
+		}
+		.parent2{
+			width: 80%;
+			min-height: 200px;
+			/*border: 2px solid darkred;*/
+			display: flex;
+			justify-content: space-between;
+			margin-left: 130px;
+		}
+		.child2{
+			width: 30%;
+			min-height: 100px;
+			/*border: 2px solid steelblue;*/
+		}
+		.heading4{
+			font-family: 'chewy', cursive;
+			margin-top: 20px;
+			margin-left: 80px;
+			font-size: 1.4em;
+		}
+		.heading5{
+			font-family: 'chewy', cursive;
+			margin-top: 20px;
+			margin-left: 50px;
+			font-size: 1.4em;
+		}
+		.secondCol button {
+			margin-top: 30px;
+			margin-left: 520px;
+			background-color: #E08E45;
+			font-family: fredoka;
+			font-weight: bold;
+			color: #FCF9F5;
+			border: 2px solid #E08E45;
+		}
+		.secondCol button:hover{
+			background-color: #FCF9F5;
+			border: 2px solid #E08E45;
+			color: #E08E45;
+		}
+		.heading6{
+			margin-left: 260px;
+			margin-top: 70px;
+			font-family: 'chewy', cursive;
+			font-size: 4.3em;
+		}
+		.parent3{
+			width: 96%;
+			min-height: 200px;
+			/*border: 2px solid darkred;*/
+			display: flex;
+			justify-content: space-between;
+			margin-left: 25px;
+			margin-top: 80px;
+		}
+		.child3{
+			width: 30%;
+			min-height: 100px;
+			/*border: 2px solid steelblue;*/
+		}
+		.image3{
+			min-height: 150px;
+			width: 60%;
+			/*border: 2px solid gray;*/
+			margin-left: 70px;
+		}
+		.image4{
+			min-height: 100px;
+			width: 60%;
+			/*border: 2px solid gray;*/
+			margin-left: 70px;
+			margin-top: -34px;
+		}
+		.heading7{
+			margin-left: 110px;
+			margin-top: 30px;
+			font-family: 'chewy', cursive;
+			font-size: 1.4em;
+		}
+		.thirdCol button {
+			margin-top: 30px;
+			margin-left: 520px;
+			background-color: #E08E45;
+			font-family: fredoka;
+			font-weight: bold;
+			color: #FCF9F5;
+			border: 2px solid #E08E45;
+		}
+		.thirdCol button:hover{
+			background-color: #FCF9F5;
+			border: 2px solid #E08E45;
+			color: #E08E45;
+		}
+		.heading8{
+			margin-left: 460px;
+			margin-top: 70px;
+			font-family: 'chewy', cursive;
+			font-size: 4.3em;
+		}
+		.fourthRowLink {
+			color: #26532B;
+		}
+		.fourthRowLink:hover{
+			background-color: #26532B;
+			color: ghostwhite;
+		}
+		.footerRow{
+			min-height: 600px;
+			/*border: 2px solid yellow;*/
+			background-color: #26532B;
+			margin-top: 50px;
+		}
+		.parent5{
+			min-height: 350px;
+			/*border: 2px solid orangered;*/
+			display: flex;
+			justify-content: space-between;
+			margin-top: 20px;
+		}
+		.child5{
+			width: 30%;
+			min-height: 150px;
+			/*border: 2px solid sandybrown;*/
+		}
+		.child5 .heading12{
+			font-family: 'chewy', cursive;
+			color: ghostwhite !important;
+			font-size: 3em;
+		}
+		.child5 ul{
+			list-style-type: none;
+		}
+		.child5 ul li a {
+			color: ghostwhite;
+			font-weight: bold;
+			font-family: fredoka;
+		}
+		.child5 ul li a:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+		}
+		.child5 button {
+			border: 2px solid ghostwhite;
+			font-weight: bold;
+			color: ghostwhite;
+			margin-top: 20px;
+			margin-left: 80px;
+		}
+		.child5 button:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+		}
+		.iTagDiv{
+			margin-top: 20px;
+			margin-left: 80px;
+			width: 	10%;
+			text-align: center;
+			background-color: ghostwhite;
+		}
+		.iTagDiv2{
+			margin-top: -24px;
+			margin-left: 130px;
+			width: 	10%;
+			text-align: center;
+			background-color: ghostwhite;
+		}
+		.iTagDiv3{
+			margin-top: -24px;
+			margin-left: 180px;
+			width: 	10%;
+			text-align: center;
+			background-color: ghostwhite;
+		}
+		.iTagDiv4{
+			margin-top: -24px;
+			margin-left: 230px;
+			width: 	10%;
+			text-align: center;
+			background-color: ghostwhite;
+		}
+		.linkDiv{
+			
+			width: 70%;
+			margin-top: 50px;
+			margin-left: 200px;
+		}
+		.link1, .link2, .link3{
+			padding: 20px;
+			color: white;
+			text-decoration: none;
+		}
+		 .link3:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+			padding: 0px 20px;
+		}
+		.link2:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+			padding: 0px 20px;
+		}
+		.link1:hover{
+			background-color: ghostwhite;
+			color: #26532B;
+			padding: 0px 20px;
+		}
+		.para100{
+			color: whitesmoke;
+			margin-left: 500px;
+		}
+
+		.logo-img {
+  height: 50px;
+  width: auto;
+}
+.navbar {
+  background-color: #F9FBF2 !important;
+}
+.navbar-nav .nav-link {
+  font-weight: bold;
+  color: #26532B !important;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .btn:hover {
+  color: #E08E45 !important;
+}
+.buttonLink{
+	border: 2px solid  #E08E45;
+	background-color: #E08E45;
+	color: ghostwhite;
+}
+.buttonLink:hover{
+	background-color: whitesmoke;
+	color: #E08E45;
+	border: 2px solid  #E08E45;
+}
+.buttonLink2{
+	border: 2px solid #26532B;
+	background-color: #26532B;
+	color: whitesmoke;
+}
+.buttonLink2:hover{
+		border: 2px solid #26532B;
+		background-color: whitesmoke;
+		color: #26532B !important;
+}
+
+	</style>
+</head>
+<body>
+
+
+	<!-- Navbar row starts here -->
+{% include 'header.html' %}
+
+
+
+	<div class="container-fluid Container1">
+		
+		<!-- First row starts here -->
+		<div class="row firstRow">
+			<div class="col firstCol">
+				<h1 class="heading1">HOW FRRUTTS WORKS</h1>
+				<div class="parent1">
+					<div class="child1">
+						<img src="/static/images/image26.png" alt="an image of a phone, and a carrot" class="img-fluid image1">
+						<h1 class="heading2">WE SPEAK TO GROWERS</h1>
+						<p class="para1">Each week we call up growers and ask what they’ve picked and what’s going spare. Fruit and veg can be at risk of going to waste for all kinds of reasons – it could be “too big”, “too odd” or just “too many”.</p>
+					</div>
+					<div class="child1">
+						<img src="/static/images/image27.png" alt="an image of a phone, and a carrot" class="img-fluid image2">
+						<h1 class="heading2">DELIVER OVERNIGHT</h1>
+						<p class="para1">Once you’ve made your swaps and chosen your add-ons, we’ll pack everything up and deliver overnight to keep emissions low.</p>
+					</div>
+
+				</div>
+				<button type="button" class="btn btn-lg rounded-1">START RESCUING</button>
+			</div>
+		</div>
+
+		<!-- Second row starts here -->
+		<div class="row secondRow">
+			<div class="col secondCol">
+				<h1 class="heading3">MAKE YOUR BOX YOUR OWN</h1>
+				<p class="para2">Our grower-led way of working means every week is different at Oddbox. Curvy cucumbers one week; ginormous spuds the next. It’s all part of the fun.</p>
+				<div class="parent2">
+					<div class="child2">
+						<img src="/static/images/image24.png" alt="an image of a carton filled with fruits and veg" class="img-fluid rounded-1">
+						<h1 class="heading4">PICK A BOX</h1>
+						<p class="para1">Small, medium or large? Fruit, veg or both? Whichever box you choose, you’ll be fighting food waste and supporting growers.</p>
+					</div>
+					<div class="child2">
+						<img src="/static/images/image28.jpg" alt="an image of  fruits and veg" class="img-fluid rounded-1">
+						<h1 class="heading4">MAKE YOUR SWAPS</h1>
+						<p class="para1">We’ll email you when the rescue list is ready – then you can swap each item in your box for something you prefer. Apples for onions? Plums for pineapple? It’s up to you. </p>
+					</div>
+					<div class="child2">
+						<img src="/static/images/image29.jpg" alt="an image of  a bowl of strawberry" class="img-fluid rounded-1">
+						<h1 class="heading5">CHOOSE YOUR ADD-ONS</h1>
+						<p class="para1">Look out for our weekly ‘add-ons’ email for extra-special, last-minute rescues that you can add to your box. We also sometimes offer special treats and freebies from our partners.</p>
+					</div>
+				</div>
+				<button type="button" class="btn btn-lg rounded-1">GET STARTED</button>
+			</div>
+		</div>
+
+
+		<!-- Third row starts here -->
+		<div class="row thirdRow">
+			<div class="col thirdCol">
+				<h1 class="heading6">KEEP ONTOP OF YOUR BOXES</h1>
+				<div class="parent3">
+					<div class="child3">
+						<img src="/static/images/image31.png" alt="an image of  a bowl of strawberry" class="img-fluid rounded-1 image3">
+						<h1 class="heading7">SKIP A WEEK</h1>
+						<p class="para1">Fruit bowl still full? Manage your box via your account and use the ‘Skip Box’ button to skip for up to four weeks.</p>
+					</div>
+					<div class="child3">
+						<img src="/static/images/image30.png" alt="an image of  a bowl of strawberry" class="img-fluid rounded-1 image4">
+						<h1 class="heading4">SWAP YOUR BOX</h1>
+						<p class="para1">Whether you need a bigger box, or just fancy more fruit, you can switch to a different box type whenever you like.</p>
+					</div>
+					<div class="child3">
+						<img src="/static/images/image32.png" alt="an image of  a bowl of strawberry" class="img-fluid rounded-1 image3">
+						<h1 class="heading7">STOP RESCUING</h1>
+						<p class="para1">If you decide to leave Frrutts, head to your account and click cancel. You're welcome back at any time.</p>
+					</div>
+				</div>
+				<button type="button" class="btn btn-lg rounded-1">VISIT ACCOUNT</button>
+			</div>
+		</div>
+
+		<!-- Fourth row starts here -->
+		<div class="row fourthRow">
+			<div class="col fourthCol">
+				<h1 class="heading8">NEED HELP?</h1>
+				<p class="para1">Not sure which box to choose? Or want to skip, swap or stop? You’ll also find answers to all our most-asked questions in our <a href="#" class="fourthRowLink">FAQs. </a>Or contact our <a href="#" class="fourthRowLink">Customer Happiness Team.</a></p>
+			</div>
+		</div>
+
+
+		<!-- Footer row starts here -->
+	{% include 'footer.html' %}
+
+
+
+			<!-- how it works offcanvas -->
+	<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasTopLabel">How It Works</h5>
+				 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<ul class="firstOffcanvas">
+				<li><a class="dropdown-item borderBottom" href="url_for{'subscription'}">Subscription</a></li>
+				<li><a class="dropdown-item borderBottom" href="#">Overnight Delivery</a></li>
+				<li><a class="dropdown-item borderBottom" href="market.html">The Market</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- About Frrutts offcanvas -->
+	<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop1" aria-labelledby="offcanvasTopLabel">
+  	<div class="offcanvas-header">
+   		 <h5 class="offcanvas-title" id="offcanvasTopLabel1">About Frrutts</h5>
+   		 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+  		<div class="inlineParents">
+  			<div class="inline1">
+			    <ul class="firstOffcanvas">
+							<li><a class="dropdown-item borderBottom" href="#">About us</a></li>
+							<li><a class="dropdown-item borderBottom" href="{{url_for('ourmission')}}">Our Mission</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Our Journey</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Our Growers</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Sustainability</a></li>
+				</ul>
+			</div>
+			<div class="inline2">
+				<ul class="firstOffcanvas ">
+							<li><a class="dropdown-item borderBottom" href="#">Community</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Testimonials</a></li>
+							<li><a class="dropdown-item borderBottom" href="#">Refer A Friend</a></li>
+				</ul>
+			</div>
+		</div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">ALREADY REGISTERED WITH US?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      		<!-- Form in modal starts here -->
+       		<div>
+       			<h1>Log In</h1>
+       			<p>Please Log in if you have an account with us</p>
+       			<form action="#" method="get">
+       				<div class="mb-2">
+       					<label class="form-label">Email Address</label>
+       					<input type="email" name="userEmail" class="form-control">
+       				</div>
+       				<div>
+       					<label class="form-label">Password</label>
+       					<input type="password" name="userPass" class="form-control">
+       				</div>
+       				<button class="btn buttonColor3 col-12">Log In</button>
+       			</form>
+       		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+	</div>
+	<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>

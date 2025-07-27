@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="icon" type="text/css" href="/static/fontawesome/svgs/solid/box.svg">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+	<style>
+				.logo-img {
+			  height: 50px;
+			  width: auto;
+			}
+			.navbar {
+			  background-color: #F9FBF2 !important;
+			}
+			.navbar-nav .nav-link {
+			  font-weight: bold;
+			  color: #26532B !important;
+			}
+			.navbar-nav .nav-link:hover,
+			.navbar-nav .btn:hover {
+			  color: #E08E45 !important;
+			}
+			.buttonLink{
+				border: 2px solid  #E08E45;
+				background-color: #E08E45;
+				color: ghostwhite;
+			}
+			.buttonLink:hover{
+				background-color: whitesmoke;
+				color: #E08E45;
+				border: 2px solid  #E08E45;
+			}
+			.buttonLink2{
+				border: 2px solid #26532B;
+				background-color: #26532B;
+				color: whitesmoke;
+			}
+			.buttonLink2:hover{
+					border: 2px solid #26532B;
+					background-color: whitesmoke;
+					color: #26532B !important;
+			}
+				.navPosition {
+				position: sticky; top: 0px;
+				min-height: 70px;
+				z-index: 100;
+			}
+			.firstRow{
+				width: 100%;
+				min-height: 600px;
+
+			}
+			.firstCol{
+				margin-top: 50px;
+				/*border: 2px solid green;*/
+				min-height: 400px;
+			}
+			.heading1{
+				font-family: 'chewy', cursive;
+				font-size: 3.2em;
+				margin-bottom: 35px;
+			}
+			.heading2{
+				font-family: 'chewy', cursive;
+				font-size: 2em;
+			}
+			.para1{
+				font-family: 'Fredoka', sans-serif;
+				font-size: 1.2em;
+			}
+			.buttonDesign1{
+				background-color: #E08E45;
+				border: 2px solid #E08E45;
+				color: whitesmoke;
+				font-weight: bold;
+			}
+			.buttonDesign1:hover{
+				background-color: white;
+				border: 2px solid #E08E45;
+				color: #E08E45;
+			}
+			.para2{
+				margin-top: 15px;
+				font-weight: bold;
+				font-family: 'Fredoka', sans-serif;
+			}
+			.firstRow{
+				min-height: 300px;
+				/*border: 2px solid gainsboro;*/
+			}
+			.heading3{
+				font-family: 'chewy', cursive;
+				font-size: 4.2em;
+				margin-bottom: 35px;
+				text-align: center;
+				margin-top: 30px;
+			}
+			.firstRowDiv1{
+				/*border: 2px solid black;*/
+				min-height: 200px;
+				width: 85%;
+				margin:auto;
+			}
+			.childDiv1{
+				/*border: 2px solid rosybrown;*/
+				min-height: 130px;
+ 				flex: 1;
+ 				padding: 1rem;
+ 			}
+			.heading4{
+				font-family: 'chewy', cursive;
+				font-size: 2em;
+				text-align: center;
+				margin: 30px 0px;
+			}
+			.childDiv1 p{
+				text-align: center;
+			}
+			.image1{
+				max-height: 13rem;
+				width: 100%;
+			}
+			/* Make the footer responsive */
+.footerRow {
+  background-color: #26532B;
+  margin-top: 50px;
+  padding: 2rem 1rem;
+}
+
+.parent5 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.child5 {
+  flex: 1 1 100%;
+  min-height: 150px;
+}
+
+@media (min-width: 768px) {
+  .child5 {
+    flex: 1 1 30%;
+  }
+}
+
+.child5 .heading12 {
+  font-family: 'chewy', cursive;
+  color: ghostwhite !important;
+  font-size: 2em;
+}
+
+.child5 ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.child5 ul li a {
+  color: ghostwhite;
+  font-weight: bold;
+  font-family: fredoka;
+}
+
+.child5 ul li a:hover {
+  background-color: ghostwhite;
+  color: #26532B;
+}
+
+.child5 button {
+  border: 2px solid ghostwhite;
+  font-weight: bold;
+  color: ghostwhite;
+  margin-top: 20px;
+}
+
+.child5 button:hover {
+  background-color: ghostwhite;
+  color: #26532B;
+}
+
+.iTagDiv, .iTagDiv2, .iTagDiv3, .iTagDiv4 {
+  display: inline-block;
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: ghostwhite;
+  line-height: 40px;
+  margin-right: 10px;
+}
+
+.linkDiv {
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.link1, .link2, .link3 {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.link1:hover, .link2:hover, .link3:hover {
+  background-color: ghostwhite;
+  color: #26532B;
+  padding: 10px 20px;
+}
+
+.para100 {
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 1rem;
+}
+	</style>
+	<title>Fresh Fruit & Veg Delivery</title>
+</head>
+<body>
+	<!-- Navbar row starts here -->
+		{% include 'header.html' %}
+
+	<div class="container-fluid">
+		
+
+
+		<!-- first row starts here -->
+		<div class="row firstRow">
+			<div class="col-12 col-lg-6 offset-lg-1 firstCol">
+				<div id="carouselExampleRide" class="carousel slide" data-bs-ride="false">
+				  <div class="carousel-inner">
+					    <div class="carousel-item active">
+					      <img src="/static/images/image39.png" class="d-block w-100 rounded-1" alt="an image of an x-large carton filled with fruits">
+					    </div>
+					    <div class="carousel-item">
+					      <img src="/static/images/image40.png" class="d-block w-100 rounded-1" alt="large">
+					    </div>
+					    <div class="carousel-item">
+					      <img src="/static/images/image41.png" class="d-block w-100 rounded-1" alt="medium">
+					    </div>
+				  </div>
+				  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+				    	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				   		<span class="visually-hidden">Previous</span>
+				  </button>
+				  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+				    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				   		<span class="visually-hidden">Next</span>
+				  </button>
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-4 firstCol">
+				<h1 class="heading1">MEET OUR FRUIT AND VEG BOXES</h1>
+				<h1 class="heading2">LARGE FRUIT AND VEG BOX</h1>
+				<p class="para1">Rescue 9 varieties of veg and 4 types of fruit at risk of going to waste.</p>
+				<p class="para1"><b>&#8358; 12,310.88</b></p>
+
+
+				<form action="" method="post">
+					<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+					<input type="radio" class="btn-check" name="fruit_veg_size" id="option5" autocomplete="off" checked value="large">
+					<label class="btn" for="option5">Large</label>
+
+					<input type="radio" class="btn-check" name="fruit_veg_size" id="option6" autocomplete="off" value="medium">
+					<label class="btn" for="option6">Medium</label>
+
+					<input type="radio" class="btn-check" name="fruit_veg_size" id="option8" autocomplete="off" value="small">
+					<label class="btn" for="option8">Small</label>
+					<button class="btn btn-lg buttonDesign1 rounded-1 col-12 mt-3">CHOOSE THIS BOX</button>
+				</form>
+
+				<p class="para2">Dinky apples. Curvy courgettes. And a bunch of beautiful beetroot, stalks and all.</p>
+				<p class="para1">Our fruit and veg delivery boxes are packed with all kinds of delicious produce rescued fresh from the farm, including the “too odd” and “too many” at risk of going to waste.</p>
+				<p class="para1">There are four sizes of fruit and veg box to pick from, and you can choose from weekly or fortnightly deliveries.</p>
+			</div>
+		</div>
+
+		<!-- Second row starts here -->
+		<div class="row secondRow">
+			<div class="col">
+				<h1 class="heading3">HOW DOES IT WORK?</h1>
+				<div class="d-lg-flex firstRowDiv1 gap-lg-5 d-block w-lg-50">
+					<div class="childDiv1">
+						<img src="/static/images/image42.png" class="img-fluid" alt="an image of a man holding a tractor">
+						<h1 class="heading4">WE SPEAK TO GROWERS</h1>
+						<p class="para1">Here’s the fun bit. Instead of giving growers a shopping list each week, we flip the food system and ask them what fruit and veg they’ve picked and what’s going spare.</p>
+					</div>
+					<div class="childDiv1">
+						<img src="/static/images/image26.png" class="img-fluid" alt="an image of a phone and a carrot">
+						<h1 class="heading4">FILL YOUR BOX</h1>
+						<p class="para1">We call this ‘grower-led eating’. If there’s space in our boxes, we then speak to growers from further afield. We’d rather rescue fruit and veg from abroad than see it go to waste, but don’t worry – we have a strict no-air-miles policy.</p>
+					</div>
+					<div class="childDiv1">
+						<img src="/static/images/image43.png" alt="an image of a pack, labelled with surprise" class="img-fluid rounded-1 image1">
+						<h1 class="heading4">DELIVER A SURPRISE  SELECTION</h1>
+						<p class="para1">So you might find a cabbage from Lincolnshire, potatoes from Suffolk and a pineapple from Costa Rica, all in the same box. Surprise!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer row starts here -->
+		{% include 'footer.html' %}
+	</div>
+
+
+
+
+	<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>

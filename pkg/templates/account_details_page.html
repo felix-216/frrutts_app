@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="icon" type="text/css" href="/static/fontawesome/svgs/solid/box.svg">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <title>Account Details</title>
+    <style>
+        .gen_row{
+            background-color: #F6F6F6;
+        }
+        .navPosition {
+			position: sticky;
+			top: 0px;
+			min-height: 70px;
+		}
+        .logo-img {
+        height: 50px;
+        width: auto;
+        }
+        .navbar {
+        background-color: #F9FBF2 !important;
+        }
+        .navbar-nav .nav-link {
+        font-weight: bold;
+        color: #26532B !important;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .btn:hover {
+        color: #E08E45 !important;
+        }
+        .buttonLink{
+            border: 2px solid  #E08E45;
+            background-color: #E08E45;
+            color: ghostwhite;
+        }
+        .buttonLink:hover{
+            background-color: whitesmoke;
+            color: #E08E45;
+            border: 2px solid  #E08E45;
+        }
+        .buttonLink2{
+            border: 2px solid #26532B;
+            background-color: #26532B;
+            color: whitesmoke;
+        }
+        .buttonLink2:hover{
+                border: 2px solid #26532B;
+                background-color: whitesmoke;
+                color: #26532B !important;
+        }
+        .account_details_section{
+            /* border: 2px solid red; */
+            min-height: 400;
+        }
+        .order_summary_section{
+            /* border: 2px solid blue; */
+            min-height: 400px;
+        }
+        .heading1{
+            font-family: 'chewy', cursive;
+        }
+        .email_label{
+            font-family: 'fredoka', sans-serif;
+        }
+        .para1{
+            font-family: 'fredoka', sans-serif;
+            color: gray;
+        }
+        .ckeck_box_div{
+            border: 1px solid brown;
+            
+        }
+        .Continue_button{
+			color: #F3ECDC;
+			background-color: #E08E45;
+			font-weight: bold;
+			border: 2px solid #E08E45;
+		}
+		.Continue_button:hover{
+			border: 2px solid #E08E45;
+			color: #E08E45;
+		}
+        .summary, .details{
+            /* border: 2px solid green; */
+            /* margin-top: 100px; */
+            /* margin-bottom: 100px; */
+            min-height: 400px;
+            background-color: white;
+        }
+        .para2{
+            font-family: 'fredoka', sans-serif;
+            font-size: 1.3em;
+        }
+        .bonus_div{
+            min-height: 100px;
+            background-color: whitesmoke;
+            width: 96%;
+            margin: auto;
+        }
+        .organiser{
+            /* border: 2px solid blue; */
+            min-height: 500px;
+            /* margin-top: 200px; */
+            width: 95%;
+            margin: auto;
+        }
+        .organiser2{
+            min-height: 600px;
+            width: 93%;
+            margin: auto;
+            /* border: 1px solid blue; */
+        }
+        /* .pdiv{
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid red;
+        }
+        .c_div{
+            width: 50%;
+            min-height: 80px;
+        } */
+        		.footerRow {
+		  background-color: #26532B;
+		  margin-top: 50px;
+		  padding: 2rem 1rem;
+		}
+
+		.parent5 {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: space-between;
+		  gap: 2rem;
+		}
+
+		.child5 {
+		  flex: 1 1 100%;
+		  min-height: 150px;
+		}
+
+		@media (min-width: 768px) {
+		  .child5 {
+		    flex: 1 1 30%;
+		  }
+		}
+
+		.child5 .heading12 {
+		  font-family: 'chewy', cursive;
+		  color: ghostwhite !important;
+		  font-size: 2em;
+		}
+
+		.child5 ul {
+		  list-style-type: none;
+		  padding-left: 0;
+		}
+
+		.child5 ul li a {
+		  color: ghostwhite;
+		  font-weight: bold;
+		  font-family: fredoka;
+		}
+
+		.child5 ul li a:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		}
+
+		.child5 button {
+		  border: 2px solid ghostwhite;
+		  font-weight: bold;
+		  color: ghostwhite;
+		  margin-top: 20px;
+		}
+
+		.child5 button:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		}
+
+		.iTagDiv, .iTagDiv2, .iTagDiv3, .iTagDiv4 {
+		  display: inline-block;
+		  margin-top: 20px;
+		  width: 40px;
+		  height: 40px;
+		  text-align: center;
+		  background-color: ghostwhite;
+		  line-height: 40px;
+		  margin-right: 10px;
+		}
+
+		.linkDiv {
+		  width: 100%;
+		  margin-top: 50px;
+		  text-align: center;
+		}
+
+		.link1, .link2, .link3 {
+		  padding: 10px;
+		  color: white;
+		  text-decoration: none;
+		  display: inline-block;
+		}
+
+		.link1:hover, .link2:hover, .link3:hover {
+		  background-color: ghostwhite;
+		  color: #26532B;
+		  padding: 10px 20px;
+		}
+
+		.para100 {
+		  color: whitesmoke;
+		  text-align: center;
+		  margin-top: 1rem;
+		}
+    </style>
+</head>
+<body>
+    <!-- navbar row -->
+
+    {% include 'header.html' %}
+
+
+    <div class="container-fluid gen_row">
+        <div class="row">
+            <div class="col-lg-8 account_details_section">
+                <div class="details rounded-1">
+                    <div class="organiser">
+                        <h1 class="heading1 mt-5">ACCOUNT DETAILS</h1>
+                        <label for="userEmail" class="form-label email_label">Email address</label>
+                        <input type="text" name="userEmail" id="userEmail" class="form-control" placeholder="user@gmail.com">
+                        <label for="user_password" class="form-label email_label">Create password</label>
+                        <input type="password" name="user_password" id="user_password" class="form-control" placeholder="EnteraPasSword">
+                        <p class="para1">Password must be a minimum of 12 characters long and include a mix of uppercase and lowercase letters, numbers, and special characters</p>
+                        <span class="d-inline-block"><i class="fa-regular fa-circle-check text-success d-inline-block"></i> No commitment. Skip, swap or stop your subscription at any time.</span>
+                        <div class="d-flex flex-row mb-3 mt-3">
+                            <div class="p-2"><img src="/static/images/image35.png" alt="a small image" width="50"  ></div>
+                            <div class="p-2">
+                                <p>Please tick this box if you do not wish to receive exclusive offers, tasty recipes and other updates from us by email, SMS or phone.</p>
+                               <input type="radio" name="ucheck" id="ucheck" class="form-check-input"> <label for="ucheck"></label> I do not wish to receive offers, recipes and updates from Oddbox</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-lg Continue_button w-100 rounded-1 mt-3">Continue</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 order_summary_section">
+                <div class="summary rounded-1 mt-5">
+                    <div class="organiser2">
+                        <p class="para2">Order Summary</p>
+                        <div class="d-flex flex-row mb-3 align-items-center w-md-75">
+                            <div class="p-2 w-50 "> <img src="/static/images/image41.png" alt="an iomage" class="rounded-1 w-50"></div>
+                            <div class="p-2 w-50">
+                                <span class="para1 d-block">Fruit & veg box</span>
+                                <p class="para1">Large</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-house me-2"></i><span class="para1">Frrutts Delivery Ltd, Frrutts, Studio</span>
+                        <p class="para1 ms-4">3.09/3.10, The Food Exchange, Port Harcourt</p>
+                        <i class="fa-solid fa-arrow-rotate-right me-2"></i><span class="para1">Weekly subscription</span>
+                        
+                        <table width="100%" cellpadding="10" class="table table-bordered mt-3">
+                            <tr>
+                                <td>Fruit & Veg Box</td>
+                                <td>&#8358; 23,560</td>
+                            </tr>
+                            <tr>
+                                <td>Delivery Fee</td>
+                                <td>&#8358; 430</td>
+                            </tr>
+                            <tr>
+                                <th>Total</th>
+                                <th>45,890</th>
+                            </tr>
+                        </table>
+                        <div class="bonus_div rounded-1">
+                            <span class="ms-2">&#8652; Skip & swap your box easily</span><br>
+                            <i class="fa-solid fa-ban ms-2"></i> <span>Pick exclusions and add-ons</span><br>
+                            <i class="fa-solid fa-circle-xmark ms-2"></i> <span>Cancel anytime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+    <script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>
