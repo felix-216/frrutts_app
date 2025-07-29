@@ -215,74 +215,44 @@
                 <div class="left-col1 rounded-1 ps-2 pe-2">
                     <h1 class="page-heading mt-3">DELIVERY DETAILS</h1>
                     <p class="para1"><b>Enter delivery details</b></p>
-                    <!-- <label for="user_address" class="form-label">Enter your address to find out your delivery day.</label> -->
-                    {{ delivery_details.address.label(class_="form-label") }}
-                    <!-- <input type="text" class="form-control" id="user_address" name="user_address"> -->
-                    {{ delivery_details.address(class_="form-control") }}
-                    <p class="para1">Incorrect building or flat number? Edit Address</p>
-                    <div class="news-container rounded-1 ps-3 pt-2 mb-4">
-                        <!-- </i><span>Grape news! We deliver to you overnight on Fridays</span><br> -->
-                        <p class="alert alert-success"><i class="fa-solid fa-calendar-days ms-2 mb-3"> </i> Grape news! We deliver to you overnight on Fridays</p>
-                    </div>
 
+                    <form action="" method="post" novalidate>
+                        {{ delivery_details.csrf_token() }}
 
-                    <div class="form-floating">
-                        <!-- <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">Friday, 11th July</option>
-                            <option value="2">Saturday, 12th July</option>
-                            <option value="3">Monday, 14th July</option>
-                            <option value="4">Tuesday, 15th July</option>
-                        </select>
-                        <label for="floatingSelect">First delivery date</label> -->
-                        {{ delivery_details.date(class_="form-select") }}
-                        {{ delivery_details.date.label() }}
-                    </div>
+                        {{ delivery_details.address.label(class_="form-label") }}
 
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-floating mb-3 mt-3">
-                                
-                                <!-- <input type="tel" class="form-control" id="user_phone" placeholder="Enter Phone number"> -->
-                                {{ delivery_details.phone_number(class_="form-control",placeholder="Enter Phone number") }}
-                                <!-- <label for="user_phone" class="form-label"><b>Phone number</b></label> -->
-                                {{ delivery_details.phone_number.label(class_="form-label") }}
-                            </div>
-
+                        {{ delivery_details.address(class_="form-control") }}
+                        <p class="para1">Incorrect building or flat number? Edit Address</p>
+                        <div class="news-container rounded-1 ps-3 pt-2 mb-4">
+                            <p class="alert alert-success"><i class="fa-solid fa-calendar-days ms-2 mb-3"> </i> Grape news! We deliver to you overnight on Fridays</p>
                         </div>
-                        <div class="col">
-                            <div class="form-floating mt-3">
-                                <!-- <input type="text" name="user_splace" id="user_splace" class="form-control" placeholder=" E.g 'In the porch', 'Behing the gate' "> -->
-                                {{ delivery_details.safe_place(class_="form-control",placeholder=" E.g 'In the porch', 'Behing the gate' ") }}
-                                <!-- <label for="user_splace" class="form-label"><b>Your safe place</b></label> -->
-                                {{ delivery_details.safe_place.label(class_="form-label") }}
+
+
+                        <div class="form-floating">
+                            {{ delivery_details.date(class_="form-select") }}
+                            {{ delivery_details.date.label() }}
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3 mt-3">
+                                    
+                                    {{ delivery_details.phone_number(class_="form-control",placeholder="Enter Phone number") }}
+                                    {{ delivery_details.phone_number.label(class_="form-label") }}
+                                </div>
+
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mt-3">
+                                    
+                                    {{ delivery_details.safe_place(class_="form-control",placeholder=" E.g 'In the porch', 'Behing the gate' ") }}
+                                    
+                                    {{ delivery_details.safe_place.label(class_="form-label") }}
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- <div class="row">
-                        <div class="col">
-                            <div class="form-floating mb-3 mt-3">
-                                <input type="text" name="user_lname" id="user_lname" class="form-control" placeholder="enter last name">
-                                <label for="user_lname" class="form-label"><b>Last name</b></label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="input-group  mt-4">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#"></a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                                <input type="number" class="form-control form-control-lg" aria-label="Text input with dropdown button" placeholder="Contact number">
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <button class="btn btn-lg Continue_button w-100 rounded-1 mt-3 mb-5">Continue</button> -->
-                    {{ delivery_details.btn(class_="btn btn-lg Continue_button w-100 rounded-1 mt-3 mb-5") }}
+                        {{ delivery_details.btn(class_="btn btn-lg Continue_button w-100 rounded-1 mt-3 mb-5") }}
+                    </form> 
                 </div>
 
 

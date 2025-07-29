@@ -373,6 +373,30 @@
 <body>
 	
 	{% include 'header.html' %}
+	
+		{% with messages = get_flashed_messages(with_categories=True) %}
+			{% if messages %}
+				{% for category, message in messages %}
+
+					{% if  category == 'warning' %}
+							<p class="alert alert-warning">{{message}}</p>
+					{% endif %}
+
+					{% if  category == 'success' %}
+							<p class="alert alert-success">{{message}}</p>
+					{% endif %}
+
+					{% if  category == 'danger' %}
+							<p class="alert alert-danger">{{message}}</p>
+					{% endif %}
+
+					{% if  category == 'info' %}
+							<p class="alert alert-info">{{message}}</p>
+					{% endif %}
+
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
 
 	<div class="container-fluid mainContainer">
 		

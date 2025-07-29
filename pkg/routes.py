@@ -7,51 +7,75 @@ from pkg.models import db,User,Plan,Box
 
 
 
-# @app.route('/')
-# def home():
-#     return "This is home page"
+
 
 @app.route('/')
 def index():
-    user_id =session.get('user_online')
-    deets = None
-    if user_id != None:  
-        deets =  db.session.query(User).get(user_id)  
-    return render_template('index.html',deets=deets)
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
+    return render_template('index.html',user_firstname=user_firstname)
 
 
-
-
-# @app.route('/frrutts/vegBoxes/')
-# def vegBoxes():
-#     return render_template('vegBoxes.html')
 
 @app.route('/subscription/')
 def subscription():
-    return render_template('subscription.html')
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
+    return render_template('subscription.html',user_firstname=user_firstname)
 
 
 
 
 @app.route('/ourmission/')
 def ourmission():
-    return render_template('ourMission.html')
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
+    return render_template('ourMission.html',user_firstname=user_firstname)
 
 @app.route('/market/')
 def market():
-    return render_template('market.html')
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
+    return render_template('market.html',user_firstname=user_firstname)
 
 @app.route('/fruitvegcontent/')
 def fruitvegcontent():
-    return render_template('fruitvegcontent.html')
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
+    return render_template('fruitvegcontent.html',user_firstname=user_firstname)
 
 @app.route('/VegBoxes/')
 def VegBoxes():
-    return render_template('VegBoxes.html')
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
+    return render_template('VegBoxes.html',user_firstname=user_firstname)
 
 @app.route('/adminDashboard/')
 def adminDashboard():
-    return render_template('adminDashboard.html')
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
+    return render_template('adminDashboard.html',user_firstname=user_firstname)
 
 
 
@@ -98,6 +122,11 @@ def register():
 
 @app.route('/vegboxesSales/',methods=['GET','POST'])
 def vegboxesSales():
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
    
     if request.method == 'POST' :
         #GET THE USER'S CHOICE
@@ -119,11 +148,13 @@ def vegboxesSales():
             flash('Please select a choice',category='warning')
             return redirect('/selectplan/')
     else:    
-        return render_template('vegboxesSales.html')
+        return render_template('vegboxesSales.html',user_firstname=user_firstname)
+
 
 
 @app.route('/fruitVegBoxes/',methods=['GET','POST'])
 def vegBoxes():
+
     if request.method== 'POST':
         selected_sizes = request.form.get('fruit_veg_size')
         if selected_sizes == None:
@@ -139,6 +170,12 @@ def vegBoxes():
 
 @app.route('/selectplan/',methods=['GET','POST'])
 def selectplan():
+
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
+
     if request.method=='POST':
   
 
@@ -157,23 +194,42 @@ def selectplan():
             db.session.commit()
 
             return redirect('/deliverydetails/')
-    return render_template('selectplan.html')
+    return render_template('selectplan.html',user_firstname=user_firstname)
+
 
 
 @app.route('/deliverydetails/',methods=['GET','POST'])
 def deliverydetails():
-    delivery_details = DeliveryDetailsForm()
-    if request.method == 'POST':
+    #PERSONALIZATION SECTION OF THE APP, TO MAKE THE USER'S DISPLAY PICTURE APPEAR ON EVERY ROUTE
+    user_session_id = session.get('user_online')
+    user = User.query.get(user_session_id)
+    user_firstname = user.user_fname
 
-        if delivery_details.validate_on_submit():
-            request.form.get('')
-            return "Payment page will be made soon"
-    
-    return render_template('delivery_details.html',delivery_details=delivery_details)
+    delivery_details = DeliveryDetailsForm()
+    if request.method == 'POST' and delivery_details.validate():
+        #GET THE DETAILS OF THE USER
+        user_address = delivery_details.address.data
+        user_phone = delivery_details.phone_number.data
+
+        #UPDATE THE USER TABLE
+        user_session_id = session.get('user_online')
+        user = User.query.get(user_session_id)
+        user.user_address = user_address
+        user.user_phone = user_phone
+
+        db.session.commit()
+
+        flash('Details addes successfully',category='success')
+        return redirect('/')
+ 
+    return render_template('delivery_details.html',delivery_details=delivery_details,user_firstname=user_firstname)
+
 
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
+
+
     login = LoginForm()
     if request.method == 'POST' and login.validate():
             
@@ -205,9 +261,15 @@ def login():
         return render_template('login.html',login=login)
     
 
+
 @app.route('/logout/')
 def logout():
 
     if session.get('user_online') != None:
         session.pop('user_online',None)
     return redirect('/login/')
+
+
+@app.route('/profile/')
+def update_profile():
+    return render_template('profile.html')

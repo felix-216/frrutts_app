@@ -37,21 +37,13 @@ class Plan(db.Model):
     plan_created_at = db.Column(db.DateTime(),default=datetime.now())
     plan_updated_at = db.Column(db.DateTime(),default=datetime.now(),onupdate=datetime.now())
 
-# class Subscription(db.Model,Plan):
-#     sub_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
-#     if Plan.plan_frequency == 'weekly':
-#         next_delivery_date = db.Column(db.DateTime(),default=datetime.now() + timedelta(days=7))
-#     elif Plan.plan_frequency == 'biweekly':
-#         next_delivery_date = db.Column(db.DateTime(),default=datetime.now() + timedelta(days=14))
-#     elif Plan.plan_frequency == 'monthly':
-#         next_delivery_date = db.Column(db.DateTime(),default=datetime.now() + timedelta(days=30))
 
 class Orders(db.Model):
     order_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     order_user_id = db.Column(db.Integer,db.ForeignKey('user.user_id'))
     order_box_id = db.Column(db.Integer,db.ForeignKey('box.box_id'))
     order_pay_status = db.Column(db.Enum('pending','paid'))
-    # order_delivery_status = db.Column(db.Integer,db.Enum('pending','paid'))
+    order_delivery_status = db.Column(db.Integer,db.Enum('pending','paid'))
     is_one_time = db.Column(db.Boolean())
     is_reoccuring = db.Column(db.Boolean())
     order_created_at = db.Column(db.DateTime(),default=datetime.now())
@@ -61,9 +53,41 @@ class Orders(db.Model):
     box = db.relationship('Box', backref='orders')
 
 
-# class Payment(db.Model):
-#     payment_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
-#     payment_order_id = db.Column(db.Integer,db.ForeignKey('order.order_id'))
-#     payment_sub_id = db.Column(db.Integer,db.ForeignKey('subscription.sub_id'))
-#     payment_user_id = db.Column(db.Integer,db.ForeignKey('user.user_id'))
-#     payment_method = 
+class Subscriptions(db.Model):
+    sub_id = db.Column(db.Integer,autoincrement=True,primary_key=True)
+    sub_userid = db.Column(db.Integer,db.ForeignKey('user.user_id'))
+    sub_boxid = db.Column(db.Integer,db.ForeignKey('box.box_id'))
+    sub_planid = db.Column(db.Integer,db.ForeignKey('plan.plan_id'))
+    sub_orderid = db.Column(db.Integer,db.ForeignKey('orders.order_id'))
+    sub_startdate = db.Column(db.DateTime,default=datetime.now())
+    sub_nextdeliverydate = db.Column(db.DateTime)
+    sub_status = db.Column(db.Enum('active','inactive'))
+    sub_lastdeliverydate = db.Column(db.DateTime)
+    sub_createdat = db.Column(db.DateTime,default=datetime.now())
+    sub_updatedat = db.Column(db.DateTime,default=datetime.now(),onupdate=datetime.now())
+
+
+    #relationships
+    user = db.relationship('User',backref="usersub")
+    box = db.relationship('Box',backref="boxsub")
+    plan = db.relationship('Plan',backref="plansub")
+    order = db.relationship('Orders',backref="ordersub")
+
+
+class Payments(db.Model):
+    pay_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
+    pay_orderid = db.Column(db.Integer,db.ForeignKey('orders.order_id'))
+    pay_subid = db.Column(db.Integer,db.ForeignKey('subscriptions.sub_id'))
+    pay_userid = db.Column(db.Integer,db.ForeignKey('user.user_id'))
+    pay_amount = db.Column(db.Integer)
+    pay_method = db.Column(db.String(200))
+    pay_status = db.Column(db.Enum('pending','successful'))
+    pay_transactionref = db.Column(db.String(500))
+    pay_attemptedat = db.Column(db.DateTime)
+    pay_createdat = db.Column(db.DateTime)
+    pay_updatedat = db.Column(db.DateTime)
+
+    #relationships
+    orders = db.relationship('Orders',backref="orderpay")
+    subscriptions = db.relationship('Subscriptions',backref="subpay")
+    user = db.relationship('User',backref="userpay")
