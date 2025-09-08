@@ -1,0 +1,57 @@
+{% extends 'admin/layout.html' %}
+
+    {% block cards %}
+        <!-- right hand side div -->
+        <div class="col-md-10 col2 rounded">
+            <!-- first row for the right hand side -->
+            <div class="parentDiv1 rounded d-lg-flex mt-2 justify-content-between ">
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-shopping-bag ms-2"></i> TODAY'S SALES </p>
+                    {% set total_sales = sales | sum(attribute='pay_amount') %}
+
+                    <h2 class="heading1 ms-2">&#8358; {{total_sales}}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-dolly ms-2"></i>TODAY'S ORDERS</p>
+                    <h2 class="heading1 ms-2">{{ todays_order|length }}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-users ms-2"></i> ACTIVE USERS</p>
+                    <h2 class="heading1 ms-2">{{ users|length }}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-clock ms-2"></i>  AVAILABLE BOXES</p>
+
+                    <h2 class="heading1 ms-2">{{ enabled_boxes|length }}</h2>
+                </div>
+        </div>
+    {% endblock %}
+
+        {% block table1 %}
+        <!-- second row for the right hand side -->
+        <div class="row rowCol rounded mt-4 ">
+            <div class="col-12 nestedCol me-md-3 rounded table-responsive shadow">
+                {% set messages = get_flashed_messages(with_categories=True) %}
+				{% if messages %}
+					{% for cat,msg in messages %}
+						{% if cat == 'error' %}
+							<p class="alert alert-danger">{{msg}}</p>
+						{% else %}
+							<p class="alert alert-success">{{msg}}</p>
+						{% endif %}
+
+					{% endfor %}
+				{% endif %}
+                <form action="" method="post">
+                    <input type="hidden" name="csrf_token" id="" value="{{csrf_token()}}">
+                    <label for="fruit" class="form-label">Add Fruit</label>
+                    <input type="text" name="fruit" id="fruit" placeholder="Add Fruit" class="form-control mb-3">
+                    <button class="btn btn-outline-success btn-lg">Add Fruit</button>
+                </form>
+            </div>
+            
+        </div>
+    {% endblock %}
+    {% block table2 %}
+
+    {% endblock %}

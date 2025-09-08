@@ -1,0 +1,193 @@
+{% extends 'userprofile/layout.html' %}
+
+    {% block items %}
+        
+        <div class="container my-4">
+  <div class="card shadow-sm border-0 rounded-4 mx-auto" style="max-width: 500px;">
+    <div class="card-body">
+      <h5 class="fw-bold mb-3 text-primary">Account Settings</h5>
+      
+      <div class="list-group list-group-flush">
+        
+        <!-- Profile -->
+        <a href="{{ url_for('user_profile') }}" class="list-group-item list-group-item-action d-flex align-items-center">
+          <i class="fa-solid fa-user text-primary me-3 fs-5"></i>
+          <span>Profile</span>
+        </a>
+        
+        <!-- Password -->
+        <a href="{{ url_for('update_password') }}" class="list-group-item list-group-item-action d-flex align-items-center">
+          <i class="fa-solid fa-lock text-danger me-3 fs-5"></i>
+          <span>Password</span>
+        </a>
+        
+        <!-- Subscriptions -->
+        <a href="{{ url_for('view_subscription') }}" class="list-group-item list-group-item-action d-flex align-items-center">
+          <i class="fa-solid fa-clipboard text-success me-3 fs-5"></i>
+          <span>View Subscriptions</span>
+        </a>
+        
+        <!-- Personal Details -->
+        <a href="{{ url_for('update_profile') }}" class="list-group-item list-group-item-action d-flex align-items-center">
+          <i class="fa-solid fa-circle-info text-info me-3 fs-5"></i>
+          <span>Personal Details</span>
+        </a>
+        
+        <!-- Payments -->
+        <a href="{{ url_for('user_payments') }}" class="list-group-item list-group-item-action d-flex align-items-center">
+          <i class="fas fa-credit-card text-warning me-3 fs-5"></i>
+          <span>Payments</span>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+    {% endblock items %}
+
+    {% block userdp %}
+        <div class="container my-4">
+            <div class="card shadow-sm border-0 rounded-4 mx-auto p-4" style="max-width: 500px;">
+                    <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start">
+                    
+                    <!-- Profile Image -->
+                    {% if user and user.user_dp %}
+                        <img
+                        src="/static/userimages/{{user.user_dp}}"
+                        alt="Profile"
+                        class="rounded-circle img-fluid me-md-4 mb-3 mb-md-0"
+                        style="width: 120px; height: 120px; object-fit: cover;"
+                        />
+                    {% else %}
+                        <img
+                        src="/static/images/image44.jpeg"
+                        alt="Profile"
+                        class="rounded-circle img-fluid me-md-4 mb-3 mb-md-0"
+                        style="width: 120px; height: 120px; object-fit: cover;"
+                        />
+                    {% endif %}
+                    
+                    <!-- User Info -->
+                    <div>
+                        <h5 class="fw-bold mb-1">{{ user.user_fname.title() }} {{ user.user_lname.title() }}</h5>
+                        <p class="text-muted mb-0">{{ user.user_email }}</p>
+                    </div>
+                    
+                    </div>
+            </div>
+        </div>
+
+    {% endblock userdp %}
+
+    
+
+    {% block information_form %}
+        <div class="ms-2">
+            <h3 class="d-inline-block ">Available Boxes</h3> <hr>
+
+            <div class="w-75 mx-auto pb-3">
+                {% set messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% for cat,msg in messages %}
+                        {% if cat == 'error' %}
+                            <div class="alert alert-warning alert-dismissible fade show mb-3" role="alert">
+                                <strong>{{msg}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                                <strong><i class="fa-solid fa-circle-user-circle-exclamation"></i> {{msg}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="w-100 mx-auto pb-3">
+
+                <div class="boxes-div d-flex flex-wrap gap-5 mt-3 justify-content-center">
+
+                    {% if boxes %}
+                        {% for box in boxes %}
+                            {% if box.box_status == 'enabled' %}
+                                <div class="card shadow" style="width: 18rem;">
+                                    <img src="/static/userimages/{{ box.box_image }}" 
+                                        class="card-img-top w-100" 
+                                        alt="..." 
+                                        height="180px"
+                                    >
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ box.box_name | title}}</h5>
+                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p> -->
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <!-- <li class="list-group-item">Name:  </li> -->
+                                        <li class="list-group-item">Size: {{ box.box_size }} </li>
+                                        <li class="list-group-item">Box Price: <strong> &#8358;{{ box.box_price }}</strong> </li>
+                                    </ul>
+
+                                    <div class="card-body">
+                                        <form action="" method="post">
+                                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                            {% set mybox_id = 'mybox_' ~ box.box_id %}
+                                            <div class="mb-2">
+                                                <input type="radio" class="btn-check" name="box" id="{{mybox_id}}" autocomplete="off" value="{{box.box_id}}" >
+                                                <label class="btn" for="{{mybox_id}}">Choose this box</label>
+                                            </div>
+                                            
+                                            
+                                            <div class="d-flex justify-content-center">
+                                                <!-- Button trigger modal -->
+                                                <button type="button" 
+                                                        class="btn btn-outline-dark btn-sm me-1" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#exampleModal{{ loop.index }}">
+                                                    View Contents
+                                                </button>
+
+                                                <button type="submit" class="btn btn-outline-warning btn-sm me-1">Swap Box</button>
+                                                <!-- <button type="submit" class="btn btn-outline-success btn-sm">Swap Box</button> -->
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+        <!-- Place modals here (outside container) -->
+    {% if boxes %}
+        {% for box in boxes %}
+            <div class="modal fade" id="exampleModal{{ loop.index }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ loop.index }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel{{ loop.index }}">{{ box.box_name | title }}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <ul>
+                                {% for fb in fruitboxes %}
+                                    {% if fb.fruitbox_boxid == box.box_id %}
+                                        <li>{{ fb.fruitss.fruit_name }}</li>
+                                        
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endblock %}

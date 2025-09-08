@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_wtf.csrf import CSRFProtect
 from flask_migrate import Migrate
+from flask_mail import Mail,Message
 
 
 
 csrf = CSRFProtect()
-
+mail = Mail()
 
 def create_app():
     
@@ -14,8 +15,9 @@ def create_app():
     app.config.from_pyfile('config.py')
     db.init_app(app)
     csrf.init_app(app)
+    mail.init_app(app)
     migrate = Migrate(app,db)
     return app
 
 app = create_app()
-from pkg import routes,forms
+from pkg import routes,forms,admin_routes

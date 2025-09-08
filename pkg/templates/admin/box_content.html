@@ -1,0 +1,88 @@
+{% extends 'admin/layout.html' %}
+
+    {% block cards %}
+        <!-- right hand side div -->
+        <div class="col-md-10 col2 rounded">
+            <!-- first row for the right hand side -->
+            <div class="parentDiv1 rounded d-lg-flex mt-2 justify-content-between ">
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-shopping-bag ms-2"></i> TODAY'S SALES </p>
+                    {% set total_sales = sales | sum(attribute='pay_amount') %}
+
+                    <h2 class="heading1 ms-2">&#8358; {{total_sales}}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-dolly ms-2"></i>TODAY'S ORDERS</p>
+                    <h2 class="heading1 ms-2">{{ todays_order|length }}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-users ms-2"></i> ACTIVE USERS</p>
+                    <h2 class="heading1 ms-2">{{ users|length }}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-clock ms-2"></i>  AVAILABLE BOXES</p>
+
+                    <h2 class="heading1 ms-2">{{ enabled_boxes|length }}</h2>
+                </div>
+        </div>
+    {% endblock %}
+
+    {% block table1 %}
+        <div class="row mt-4">
+            <div class="col-12 col-md-10 mx-auto">
+                {% if box %}
+                <div class="card shadow rounded-3 border-0">
+                <div class="card-header bg-success text-white rounded-top">
+                    <h5 class="mb-0">📦 Box Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                    <div class="col-6 text-muted fw-semibold">Box Name</div>
+                    <div class="col-6">{{ box.box_name }}</div>
+                    </div>
+                    <div class="row mb-3">
+                    <div class="col-6 text-muted fw-semibold">Box Price</div>
+                    <div class="col-6">{{ box.box_price }}</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-6 text-muted fw-semibold">Box Size</div>
+                    <div class="col-6">{{ box.box_size }}</div>
+                    </div>
+                </div>
+                </div>
+                {% else %}
+                <div class="alert alert-info text-center shadow-sm">
+                No box details available
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
+
+
+    {% block table2 %}
+        <div class="row mt-4">
+            <div class="col-12 col-md-10 mx-auto">
+                <div class="card shadow border-0 rounded-3">
+                    <div class="card-header bg-primary text-white rounded-top">
+                        <h5 class="mb-0">🍎 Box Contents</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if fruit_box %}
+                        <ul class="list-group list-group-flush">
+                            {% for fruit in fruit_box %}
+                            <li class="list-group-item d-flex align-items-center">
+                                <span class="me-2">🍊</span> {{ fruit.fruitss.fruit_name }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <div class="alert alert-warning text-center shadow-sm mb-0">
+                            You have not added any content for this box
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

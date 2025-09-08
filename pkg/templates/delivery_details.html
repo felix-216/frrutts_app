@@ -219,36 +219,26 @@
                     <form action="" method="post" novalidate>
                         {{ delivery_details.csrf_token() }}
 
-                        {{ delivery_details.address.label(class_="form-label") }}
+                        <div class="form-floating">
+                            {{ delivery_details.address(class_="form-control") }}
+                            {{ delivery_details.address.label(class_="form-label") }}
 
-                        {{ delivery_details.address(class_="form-control") }}
+                        </div>
+
                         <p class="para1">Incorrect building or flat number? Edit Address</p>
                         <div class="news-container rounded-1 ps-3 pt-2 mb-4">
                             <p class="alert alert-success"><i class="fa-solid fa-calendar-days ms-2 mb-3"> </i> Grape news! We deliver to you overnight on Fridays</p>
                         </div>
 
 
-                        <div class="form-floating">
-                            {{ delivery_details.date(class_="form-select") }}
-                            {{ delivery_details.date.label() }}
-                        </div>
-
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3 mt-3">
                                     
-                                    {{ delivery_details.phone_number(class_="form-control",placeholder="Enter Phone number") }}
+                                    {{ delivery_details.phone_number(class_="form-control") }}
                                     {{ delivery_details.phone_number.label(class_="form-label") }}
                                 </div>
 
-                            </div>
-                            <div class="col">
-                                <div class="form-floating mt-3">
-                                    
-                                    {{ delivery_details.safe_place(class_="form-control",placeholder=" E.g 'In the porch', 'Behing the gate' ") }}
-                                    
-                                    {{ delivery_details.safe_place.label(class_="form-label") }}
-                                </div>
                             </div>
                         </div>
                         {{ delivery_details.btn(class_="btn btn-lg Continue_button w-100 rounded-1 mt-3 mb-5") }}

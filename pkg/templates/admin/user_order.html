@@ -1,0 +1,94 @@
+{% extends 'admin/layout.html' %}
+
+    {% block cards %}
+        <!-- right hand side div -->
+        <div class="col-md-10 col2 rounded">
+            <!-- first row for the right hand side -->
+            <div class="parentDiv1 rounded d-lg-flex mt-2 justify-content-between ">
+                <!-- <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-shopping-bag ms-2"></i> TOTAL SALES </p>
+                    <h2 class="heading1 ms-2">&#8358; 987,700</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-dolly ms-2"></i>TOTAL ORDERS</p>
+                    <h1 class="heading1 ms-2">3,122</h1>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-users ms-2"></i> TOTAL USERS</p>
+                    <h2 class="heading1 ms-2">1,101</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-clock ms-2"></i>  PAYMENTS DUE</p>
+                    <h2 class="heading1 ms-2">&#8358; 358,902</h2>
+                </div> -->
+        </div>
+    {% endblock %}
+
+    {% block table1 %}
+        <!-- second row for the right hand side -->
+        <div class="row rowCol rounded mt-4">
+            <div class="col-12 nestedCol me-md-3 rounded table-responsive shadow d-flex align-items-center">
+                
+                {% if user.user_dp %}
+                    <img
+                        src="/static/userimages/{{user.user_dp}}"                           
+                        alt="Profile"
+                        class="rounded-circle me-2 w-25 mt-2" 
+                        width="19" 
+                        height="200"                       
+                    />
+                    {% else %}                           
+                    <img
+                        src="/static/images/image44.jpeg"                           
+                        alt="Profile"
+                        class="rounded-circle me-2 w-25"
+                        width="25" 
+                        height="100"                       
+                    />
+                
+                {% endif %}
+
+                <div class="mt-md-3"><p >{{user.user_fname.title()}} {{user.user_lname.title()}}</p>   <p>{{user.user_email}}</p> </div>
+            </div>
+            
+        </div>
+    {% endblock %}
+
+    {% block table2 %}
+        <!-- second row for the right hand side -->
+        <div class="row rowCol rounded mt-4">
+            <div class="col-12 nestedCol me-md-3 rounded table-responsive shadow">
+                {% if order %}
+                    <table class="w-100">
+
+                        <thead>
+                            <tr>
+                                <th colspan="1">Recent Orders</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Box</th>
+                                <th>Box price</th>
+                                <th>Box size</th>
+                                <th>Payment Status</th>
+                                <th>Order date</th>
+                            </tr>
+                            {% for order in order %}
+                                <tr>
+                                    <td>{{ order.box.box_name }} </td>
+                                    <td>&#8358; {{ order.box.box_price }}</td>
+                                    <td>{{ order.box.box_size }}</td>
+                                    <td>{{ order.order_pay_status }}</td>
+                                    <td>{{ order.order_created_at.strftime("%d %B, %Y   %H:%M:%S") }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                {% endif %}
+            </div>
+            
+        </div>
+    {% endblock %}

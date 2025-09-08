@@ -1,9 +1,9 @@
 <!-- Navbar starts here -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary rounded navPosition" style="z-index: 99">
+<nav class="navbar navbar-expand-sm bg-body-tertiary rounded navPosition" style="z-index: 99">
   <div class="container-fluid d-flex align-items-center justify-content-between">
     <a class="navbar-brand d-flex align-items-center" href="{{url_for('index')}}">
       <img src="/static/images/image38.png" alt="logo" class="logo-img me-2">
-      <span class="fw-bold fs-4 text-dark">Frrutts</span>
+      <!-- <span class="fw-bold fs-4 text-dark">Frrutts</span> -->
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -13,24 +13,14 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav align-items-center gap-3 firstNav">
+
         <li class="nav-item">
-          <div class="dropdown-center">
-            <a class="btn dropdown-toggle nav-link active boxes-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Boxes
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/fruitVegBoxes/">Fruit & Veg Boxes</a></li>
-              <li><a class="dropdown-item" href="/vegboxesSales/">Veg Boxes</a></li>
-              <li><a class="dropdown-item" href="#">Fruits</a></li>
-            </ul>
-          </div>
-		    </li>
+          <a class="nav-link" href="{{url_for('boxes')}}">Boxes</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('market')}}">The Market</a>
         </li>
-		    <!-- <li class="nav-item">
-          <a class="nav-link" href="{{url_for('adminDashboard')}}"><i class="fas fa-chart-bar"> </i>Dashboard</a>
-        </li> -->
+		  
 		    <li class="nav-item">
           <a class="nav-link" href="/ourmission/">About Frrutts</a>
         </li>
@@ -56,21 +46,29 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-            <img
-                src="/static/images/image44.jpeg"
-                alt="Profile"
-                class="rounded-circle me-2"
-                width="32"
-                height="32"
-              />
+            {% if user.user_dp %}
+                <img
+                    src="/static/userimages/{{user.user_dp}}"                           
+                    alt="Profile"
+                    class="rounded-circle me-2 img-fluid" 
+                    style="width: 45px; height: 45px; object-fit: cover;"                            
+                />
+            {% else %}                           
+                <img
+                    src="/static/images/image44.jpeg"                           
+                    alt="Profile"
+                    class="rounded-circle me-2 img-fluid" 
+                    style="width: 45px; height: 45px; object-fit: cover;"                      
+                />
+            {% endif %}
 
          
               
-              <span class="d-none d-md-inline">Hi, {% if user_firstname %} {{ user_firstname.title() }}   {% endif %} </span>
+              <span class="d-none d-md-inline">Welcome, {% if user %} {{ user.user_fname | title }}   {% endif %} </span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarProfileDropdown">
-              <li><a class="dropdown-item" href="">Profile</a></li>
-              <li><a class="dropdown-item" href="">Settings</a></li>
+              <li><a class="dropdown-item" href="{{url_for('user_profile')}}">Profile</a></li>
+              <li><a class="dropdown-item" href="{{url_for('update_profile')}}">Settings</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item text-danger" href="{{url_for('logout')}}">Logout</a></li>
             </ul>

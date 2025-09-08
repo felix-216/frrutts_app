@@ -1,0 +1,101 @@
+{% extends 'admin/layout.html' %}
+
+    {% block cards %}
+        <!-- right hand side div -->
+        <div class="col-md-10 col2 rounded">
+            <!-- first row for the right hand side -->
+            <div class="parentDiv1 rounded d-lg-flex mt-2 justify-content-between ">
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-shopping-bag ms-2"></i> TODAY'S SALES </p>
+                    {% set total_sales = sales | sum(attribute='pay_amount') %}
+
+                    <h2 class="heading1 ms-2">&#8358; {{total_sales}}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-dolly ms-2"></i>TODAY'S ORDERS</p>
+                    <h2 class="heading1 ms-2">{{ todays_order|length }}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-users ms-2"></i> ACTIVE USERS</p>
+                    <h2 class="heading1 ms-2">{{ users|length }}</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-clock ms-2"></i>  AVAILABLE BOXES</p>
+
+                    <h2 class="heading1 ms-2">{{ enabled_boxes|length }}</h2>
+                </div>
+        </div>
+    {% endblock %}
+
+    {% block table1 %}
+        <!-- second row for the right hand side -->
+
+    {% endblock %}
+
+    {% block table2 %}
+        <!-- third row for the right hand side -->
+        <div class="row rowCol2 mt-4 rounded shadow">
+            
+            <div class="col transformDiv table-responsive ">
+                {% set messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% for cat,msg in messages %}
+                        {% if cat == 'error' %}
+                            <div class="alert alert-warning alert-dismissible fade show mb-3" role="alert">
+                                <strong>{{msg}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                                <strong><i class="fa-solid fa-circle-user-circle-exclamation"></i> {{msg}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                {% endif %}
+
+                <table cellspacing="0" cellpadding="20" width="100%">
+                    <thead>
+                        <tr>
+                            <th>S/N</th>
+                            <th>Box Name</th>
+                            <th>Update</th>
+                            <th>Box size</th>
+                            <th>Contents</th>
+                            <th>Box price</th>
+                            <th>Status</th>
+                                                       
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if boxes %}
+                            {% for box in boxes %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    <td>{{box.box_name | title}}</td>
+                                    <td><a href="{{url_for('update_box', id = box.box_id)}}" class="btn btn-sm btn-outline-info">Update This box</a></td>
+                                    {% if box.box_size == 'Small' %}
+                                        <td><p class="badge bg-primary">{{box.box_size}}</p></td>
+                                    {% elif box.box_size == 'Medium' %}
+                                        <td><p class="badge bg-success">{{box.box_size}}</p></td>
+                                    {% else %}
+                                        <td><p class="badge bg-warning">{{box.box_size}}</p></td>
+                                    {% endif %}
+                                    <td> <a href="{{url_for('box_contents', id=box.box_id)}}" class="btn btn-outline-dark btn-sm">See contents</a></td>
+                                    <td>{{box.box_price}}</td>
+                        
+                                    {% if box.box_status == 'enabled' %}
+                                        <td> <a href="{{url_for('box_status', id=box.box_id)}}" class="btn btn-outline-danger btn-sm">Disable Box</a></td>
+                                    {% elif box.box_status == 'disabled' %}
+                                        <td> <a href="{{url_for('box_status', id=box.box_id)}}" class="btn btn-outline-success btn-sm">Enable Box</a></td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    {% endblock %}

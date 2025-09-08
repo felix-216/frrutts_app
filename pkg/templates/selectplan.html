@@ -56,7 +56,7 @@
         }
         .firstRow{
             min-height: 500px;
-            /* border: 2px solid red; */
+            
         }
         .firstCol{
             min-height: 200px;
@@ -228,12 +228,60 @@
         <!-- firstrow starts here -->
         <div class="row firstRow">
             <div class="col firstCol rounded-1">
+                <div class="w-75 mx-auto pb-3">
+                {% set messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% for cat,msg in messages %}
+                        {% if cat == 'error' %}
+                            <div class="alert alert-warning alert-dismissible fade show mb-3" role="alert">
+                                <strong>{{msg}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                                <strong><i class="fa-solid fa-circle-user-circle-exclamation"></i> {{msg}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                {% endif %}
+            </div>
 
                 <!-- form starts here  -->
                 <form action="" method="post">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                    <div class="parentDiv flex-wrap d-lg-flex">
+                    <div class="parentDiv d-flex flex-wrap gap-2 mt-3 justify-content-center">
                         <!-- first plan -->
+
+                        <div class="childDiv rounded-3">
+                            <div class="childDiv1">
+                                
+                                <input type="radio" name="plan" value="one_off" id="plan" class="form-check-input mt-4">
+                                <label for="plan" class=" jj"> <strong>One Off</strong></label>
+                                <p class="para1">Packages as specified by our customers are supplied every seventh day of subscription</p>
+                                <hr>
+                                <table class="table border-spacing: 10px; custom-table">
+                                    <tr>
+                                        <th>Delivery Window</th>
+                                        <th>Subscription Duration</th>
+                                    </tr>
+                                    <tr>
+                                        <td>9:00AM - 4:00PM</td>
+                                        <td>1 day</td>
+                                    </tr>
+                                </table>
+                                <h4>Features</h2>
+                                <ul style="list-style-type: none;">
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Cancel Anytime <i class="fas fa-calendar-times"></i></li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Upgradeable <i class="fa-solid fa-arrows-rotate"></i></li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Eco-Friendly Packaging <i class="fa-solid fa-leaf"></i></li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Weekly Plan Auto-Renews <i class="fa-solid fa-recycle"></i></li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i>New Fruits Weekly <i class="fa-solid fa-seedling  me-2"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="childDiv rounded-3">
                             <div class="childDiv1">
                                 

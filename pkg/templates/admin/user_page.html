@@ -1,0 +1,117 @@
+{% extends 'admin/layout.html' %}
+
+    {% block cards %}
+        <!-- right hand side div -->
+        <div class="col-md-10 col2 rounded">
+            <!-- first row for the right hand side -->
+            <div class="parentDiv1 rounded d-lg-flex mt-2 justify-content-between ">
+                <!-- <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-shopping-bag ms-2"></i> TOTAL SALES </p>
+                    <h2 class="heading1 ms-2">&#8358; 987,700</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-dolly ms-2"></i>TOTAL ORDERS</p>
+                    <h1 class="heading1 ms-2">3,122</h1>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-users ms-2"></i> TOTAL USERS</p>
+                    <h2 class="heading1 ms-2">1,101</h2>
+                </div>
+                <div class="childDiv1 rounded shadow">
+                    <p><i class="fas fa-clock ms-2"></i>  PAYMENTS DUE</p>
+                    <h2 class="heading1 ms-2">&#8358; 358,902</h2>
+                </div> -->
+        </div>
+    {% endblock %}
+
+    {% block table1 %}
+        <!-- second row for the right hand side -->
+        <div class="container my-4">
+            <div class="card shadow-sm border-0 rounded-4 mx-auto p-4" style="max-width: 500px;">
+                    <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start">
+                    
+                    <!-- Profile Image -->
+                    {% if user and user.user_dp %}
+                        <img
+                        src="/static/userimages/{{user.user_dp}}"
+                        alt="Profile"
+                        class="rounded-circle img-fluid me-md-4 mb-3 mb-md-0"
+                        style="width: 120px; height: 120px; object-fit: cover;"
+                        />
+                    {% else %}
+                        <img
+                        src="/static/images/image44.jpeg"
+                        alt="Profile"
+                        class="rounded-circle img-fluid me-md-4 mb-3 mb-md-0"
+                        style="width: 120px; height: 120px; object-fit: cover;"
+                        />
+                    {% endif %}
+                    
+                    <!-- User Info -->
+                    <div>
+                        <h5 class="fw-bold mb-1">{{ user.user_fname.title() }} {{ user.user_lname.title() }}</h5>
+                        <p class="text-muted mb-0">{{ user.user_email }}</p>
+                    </div>
+                    
+                    </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block table2 %}
+<div class="container my-4">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body">
+      <h4 class="fw-bold mb-4">User Information</h4>
+      
+      <div class="list-group list-group-flush">
+        
+        <!-- Address -->
+        <div class="list-group-item d-flex align-items-center border-0 px-0 py-2">
+          <i class="fa-solid fa-location-dot text-primary me-3 fs-5"></i>
+          <div>
+            <small class="text-muted d-block">Address</small>
+            <span class="fw-semibold">
+              {% if user.user_address %} {{ user.user_address }} {% else %} No address yet {% endif %}
+            </span>
+          </div>
+        </div>
+        
+        <!-- Phone -->
+        <div class="list-group-item d-flex align-items-center border-0 px-0 py-2">
+          <i class="fa-solid fa-phone text-success me-3 fs-5"></i>
+          <div>
+            <small class="text-muted d-block">Phone Number</small>
+            <span class="fw-semibold">
+              {% if user.user_phone %} {{ user.user_phone }} {% else %} No phone number yet {% endif %}
+            </span>
+          </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="list-group-item d-flex align-items-center border-0 px-0 py-2">
+          <i class="fa-solid fa-envelope text-warning me-3 fs-5"></i>
+          <div>
+            <small class="text-muted d-block">Email</small>
+            <span class="fw-semibold">
+              {% if user.user_email %} {{ user.user_email }} {% else %} No Email yet {% endif %}
+            </span>
+          </div>
+        </div>
+        
+        <!-- Status -->
+        <div class="list-group-item d-flex align-items-center border-0 px-0 py-2">
+          <i class="fa-solid fa-circle-check text-info me-3 fs-5"></i>
+          <div>
+            <small class="text-muted d-block">Status</small>
+            <span class="fw-semibold">
+              {% if user.user_status %} {{ user.user_status }} {% else %} No status yet {% endif %}
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

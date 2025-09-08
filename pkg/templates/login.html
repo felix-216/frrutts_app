@@ -47,13 +47,13 @@
             color: whitesmoke;
         }
         .buttonLink2:hover{
-                border: 2px solid #26532B;
-                background-color: whitesmoke;
-                color: #26532B !important;
+			border: 2px solid #26532B;
+			background-color: whitesmoke;
+			color: #26532B !important;
         }
         .footerRow {
 		  background-color: #26532B;
-		  margin-top: 50px;
+		  /* margin-top: 50px; */
 		  padding: 2rem 1rem;
 		}
 
@@ -145,6 +145,20 @@
 		  margin-top: 1rem;
 		}
 
+		.background-image-div {
+		  background-image: url('/static/images/image28.jpg');	
+		  background-size: cover;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  padding: 20px;
+		  
+		}
+		.form-div {
+			background-color: rgba(26, 8, 8, 0.8);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
         /* login button  */
         .login-button:hover{
             background-color:  #F9FBF2;
@@ -165,23 +179,30 @@
     {% include 'header.html' %}
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row background-image-div">
             <div class="col-12">
-				{% set messages = get_flashed_messages(with_categories=True) %}
-				{% if messages %}
-					{% for cat,msg in messages %}
-						{% if cat == 'error' %}
-							<p class="alert alert-danger">{{msg}}</p>
-						{% else %}
-							<p class="alert alert-success">{{msg}}</p>
-						{% endif %}
+				
+				<div class="col-11 col-md-6 form-div rounded-1 mt-4" style="min-height: 400px;margin: auto;" >
 
-					{% endfor %}
-				{% endif %}
-                <div class="w-50 border border-2 border-dark rounded-1" style="min-height: 400px;margin: auto;" >
+					
                     <form action="" novalidate method="post">
 						{{ login.csrf_token }}
-                        <h1 style="font-family: 'fredoka',sans-serif;" class="text-center mb-5">Login Page</h1>
+                        <!-- <h1 style="font-family: 'fredoka',sans-serif;" class="text-center mb-5">Login Page</h1> -->
+						
+						<div class="w-75 mx-auto pb-3">
+							{% set messages = get_flashed_messages(with_categories=True) %}
+							{% if messages %}
+								{% for cat,msg in messages %}
+									{% if cat == 'error' %}
+										<p class="alert alert-danger">{{msg}}</p>
+									{% else %}
+										<p class="alert alert-success">{{msg}}</p>
+									{% endif %}
+
+								{% endfor %}
+							{% endif %}
+						</div>
+
                         <div class="form-floating mb-3" style="width: 95%;margin: auto;">
                             
                             {{ login.email(class_="form-control",placeholder="name@example.com") }}
@@ -198,6 +219,7 @@
                             {{ login.submit(class_="btn login-button col-11 btn-lg rounded-1 ms-3") }}
                         </div>
                     </form>
+					<p class="ms-5"><a href="{{url_for('register')}}" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Not registered? Register here</a></p>
                 </div>
             </div>
         </div>
