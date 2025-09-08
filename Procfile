@@ -1,2 +1,2 @@
-web: flask db upgrade && gunicorn pkg:app
+web: flask db upgrade && gunicorn starter:app
 
