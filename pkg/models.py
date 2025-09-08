@@ -12,7 +12,7 @@ class User(db.Model):
     user_address = db.Column(db.String(500))
     user_phone = db.Column(db.String(20))
     user_dp = db.Column(db.String(200))
-    user_status = db.Column(db.Enum('active','inactive'),default='inactive')
+    user_status = db.Column(db.Enum('active','inactive','banned',name="user_status"),default='inactive')
     user_date_created = db.Column(db.DateTime(),default=datetime.now)
     user_date_updated = db.Column(db.DateTime(),default=datetime.now,onupdate=datetime.now)
 
@@ -22,10 +22,10 @@ class User(db.Model):
 class Box(db.Model):
     box_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     box_name = db.Column(db.String(200))
-    box_size = db.Column(db.Enum('Large','Medium','Small'))
+    box_size = db.Column(db.Enum('Large','Medium','Small',name="box_size"))
     box_price = db.Column(db.Integer)
     box_image = db.Column(db.String(300))
-    box_status = db.Column(db.Enum('enabled','disabled'),default='enabled')
+    box_status = db.Column(db.Enum('enabled','disabled',name="box_status"),default='enabled')
     box_created_at = db.Column(db.DateTime(),default=datetime.now)
     box_updated_at = db.Column(db.DateTime(),default=datetime.now,onupdate=datetime.now)
 
@@ -34,7 +34,7 @@ class Box(db.Model):
 
 class Plan(db.Model):
     plan_id = db.Column(db.Integer,autoincrement=True,primary_key=True)
-    plan_frequency = db.Column(db.Enum('weekly','one_off','biweekly','monthly'),nullable=False)
+    plan_frequency = db.Column(db.Enum('weekly','one_off','biweekly','monthly',name="plan_frequency"),nullable=False)
     plan_created_at = db.Column(db.DateTime(),default=datetime.now)
     plan_updated_at = db.Column(db.DateTime(),default=datetime.now,onupdate=datetime.now)
 
@@ -44,8 +44,8 @@ class Orders(db.Model):
     order_user_id = db.Column(db.Integer,db.ForeignKey('user.user_id'))
     order_box_id = db.Column(db.Integer,db.ForeignKey('box.box_id'))
     order_plan_id = db.Column(db.Integer,db.ForeignKey('plan.plan_id'))
-    order_pay_status = db.Column(db.Enum('pending','paid'))
-    order_delivery_status = db.Column(db.Enum('pending','paid'))
+    order_pay_status = db.Column(db.Enum('pending','paid',name="order_pay_status"),default='pending')
+    order_delivery_status = db.Column(db.Enum('pending','paid',name="order_delivery_status"),default='pending')
     is_one_time = db.Column(db.Boolean())
     is_reoccuring = db.Column(db.Boolean())
     order_created_at = db.Column(db.DateTime(),default=datetime.now)
@@ -66,7 +66,7 @@ class Subscriptions(db.Model):
     sub_startdate = db.Column(db.DateTime,default=datetime.now())
     sub_nextdeliverydate = db.Column(db.DateTime)
     sub_authorization_code = db.Column(db.String(300))
-    sub_status = db.Column(db.Enum('active','inactive','cancelled'),default='inactive')
+    sub_status = db.Column(db.Enum('active','inactive','cancelled',name="sub_status"),default='inactive')
     sub_lastdeliverydate = db.Column(db.DateTime)
     sub_createdat = db.Column(db.DateTime,default=datetime.now)
     sub_updatedat = db.Column(db.DateTime,default=datetime.now,onupdate=datetime.now)
@@ -86,7 +86,7 @@ class Payments(db.Model):
     pay_userid = db.Column(db.Integer,db.ForeignKey('user.user_id'))
     pay_amount = db.Column(db.Integer)
     
-    pay_status = db.Column(db.Enum('pending','successful','failed'))
+    pay_status = db.Column(db.Enum('pending','successful','failed',name="pay_status"),default='pending')
     pay_transactionref = db.Column(db.String(500))
     pay_attemptedat = db.Column(db.DateTime,default=datetime.now)
     pay_createdat = db.Column(db.DateTime,default=datetime.now)
@@ -120,6 +120,6 @@ class Admin(db.Model):
     admin_id = db.Column(db.Integer,autoincrement=True,primary_key=True)
     admin_email = db.Column(db.String(50))
     admin_pwd = db.Column(db.String(200))
-    admin_loggedin = db.Column(db.Enum('1','0'),default='0')
+    admin_loggedin = db.Column(db.Enum('1','0',name="admin_loggedin"),default='0')
 
 
